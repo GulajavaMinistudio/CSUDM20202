@@ -16,7 +16,7 @@ if (bilanganCek % 2 === 0) {
     console.log('BILANGAN GANJIL', bilanganCek);
 }
 
-const nilaiPeringkat = 10;
+const nilaiPeringkat = 9;
 if (nilaiPeringkat < 6) {
     console.log('Hasil tidak memuaskan', nilaiPeringkat);
 } else if (nilaiPeringkat >= 6 && nilaiPeringkat < 8) {
@@ -27,4 +27,18 @@ if (nilaiPeringkat < 6) {
     console.log('Hasil nilai luar biasa', nilaiPeringkat);
 } else {
     console.log('Nilai tidak terdaftar');
+}
+
+let highScore = 1800;
+const userScore = 1900;
+
+if (userScore >= highScore) {
+    console.log(
+        `Selamat, skor anda telah melampaui skor tertinggi. Skor tertinggi yang baru adalah ${userScore} .`
+    );
+    highScore = userScore;
+} else {
+    console.log(
+        `Maaf, skor anda ${userScore} masih belum dapat melampaui skor tertinggi, yaitu ${highScore}. Silahkan coba lagi.`
+    );
 }
