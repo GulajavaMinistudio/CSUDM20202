@@ -52,3 +52,17 @@ if (
 ) {
     console.log('PILIHAN ANDA BERSELERA TINGGI', warnaPilih);
 }
+
+// CEK Status Login
+const isLoggedIn = false;
+
+if (!isLoggedIn) {
+    console.log('Anda belum masuk ke dalam aplikasi');
+}
+
+const rasaBuah = 'jeruk';
+if (rasaBuah !== 'jeruk' && rasaBuah !== 'durian') {
+    console.log('Kami tidak menyediakan es krim rasa ini. ', rasaBuah);
+} else {
+    console.log('Rasa buah tersedia. ', rasaBuah);
+}
