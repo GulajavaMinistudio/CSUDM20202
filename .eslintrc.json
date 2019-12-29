@@ -22,6 +22,7 @@
         "no-process-exit": "off",
         "object-shorthand": "off",
         "class-methods-use-this": "off",
-        "semi": "error"
+        "semi": "error",
+        "comma-dangle": "error"
     }
 }

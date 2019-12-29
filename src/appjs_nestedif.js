@@ -39,7 +39,7 @@ if (umurPenonton < 7 || umurPenonton >= 60) {
     console.log('Anda bisa naik bus gratis', umurPenonton);
 } else {
     console.log(
-        `Anda harus membayar tiket bus karena umur anda ${umurPenonton}`
+        `Anda harus membayar tiket bus karena umur anda ${umurPenonton}`,
     );
 }
 
