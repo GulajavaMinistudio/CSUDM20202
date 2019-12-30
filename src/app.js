@@ -34,11 +34,11 @@ const userScore = 1900;
 
 if (userScore >= highScore) {
     console.log(
-        `Selamat, skor anda telah melampaui skor tertinggi. Skor tertinggi yang baru adalah ${userScore} .`
+        `Selamat, skor anda telah melampaui skor tertinggi. Skor tertinggi yang baru adalah ${userScore} .`,
     );
     highScore = userScore;
 } else {
     console.log(
-        `Maaf, skor anda ${userScore} masih belum dapat melampaui skor tertinggi, yaitu ${highScore}. Silahkan coba lagi.`
+        `Maaf, skor anda ${userScore} masih belum dapat melampaui skor tertinggi, yaitu ${highScore}. Silahkan coba lagi.`,
     );
 }
