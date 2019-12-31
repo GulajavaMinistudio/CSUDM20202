@@ -81,3 +81,19 @@ refArrMemoryFixedClone.pop();
 
 console.log('ARRAY MEMORY CLONE ', refArrMemoryFixedClone);
 console.log('ARRAY MEMORY ASLI ', refArrMemoryFixed);
+
+const makanans = ['susu', 'kacang'];
+makanans.push('cokelat');
+makanans.unshift('jagung bakar');
+makanans.splice(1, 0, 'roti bakar', 'sarden rebus');
+console.log(makanans);
+
+// NESTED ARRAY
+const nestedArrays = [
+    ['bebek', 'kucing'],
+    ['ayam', 'lele', ['kodok', 'semut']],
+];
+
+nestedArrays.push(['kacang', 'tongkol']);
+console.log('NESTED ARRAY ', nestedArrays);
+console.log(nestedArrays[1][2]);
