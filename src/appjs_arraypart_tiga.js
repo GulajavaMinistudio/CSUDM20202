@@ -61,3 +61,23 @@ const sortedNama = siswaNilaiNama.sort((valueA, valueB) => {
 });
 
 console.log('SORT NAMA ', sortedNama);
+
+// ARRAY menyimpan datanya di dalam memory. Jika ada variabel lain yang mengambil nilai array
+// tersebut, maka variabel tersebut mereferensikan ke referensi memory yang sama.
+// jika salah satu array di modifikasi, maka array yang lain akan mengalami perubahan juga
+const refArrMemory = [1, 2, 3, 4, 5];
+const refArrMemoryLagi = refArrMemory;
+
+refArrMemoryLagi.pop();
+refArrMemoryLagi.pop();
+console.log(refArrMemoryLagi);
+console.log(refArrMemory);
+
+// solusi clone array yang benar
+const refArrMemoryFixed = [1, 2, 3, 4, 5];
+const refArrMemoryFixedClone = JSON.parse(JSON.stringify(refArrMemoryFixed));
+
+refArrMemoryFixedClone.pop();
+
+console.log('ARRAY MEMORY CLONE ', refArrMemoryFixedClone);
+console.log('ARRAY MEMORY ASLI ', refArrMemoryFixed);
