@@ -41,7 +41,8 @@ for (let i = 1; i <= 10; i += 1) {
 
 for (let i = 1; i <= 10; i += 1) {
     const perkalian = i * i;
-    console.log(`${i} x ${i} = ${perkalian}`);
+    const keteranganPerkalian = `${i} x ${i} = ${perkalian}`;
+    console.log(keteranganPerkalian);
 }
 
 for (let i = 50; i >= 0; i -= 10) {

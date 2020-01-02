@@ -26,3 +26,10 @@ for (let i = 0; i < panjangArrayGameboard; i += 1) {
 }
 
 console.log('SKOR GAMEBOARDS ', skorGameboardTotal);
+
+// WHILE LOOP
+let numLoop = 0;
+while (numLoop < 10) {
+    console.log('URUTAN WHILE ', numLoop);
+    numLoop += 1;
+}
