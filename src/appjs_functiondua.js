@@ -2,23 +2,23 @@
 // password harus panjang lebih dari 8,
 // tidak boleh ada spasi
 // tidak ada nama username di password
-// function isValidasiPassword(username = '', password = '') {
-//     if (password.length < 8) {
-//         return false;
-//     }
-//     if (password.indexOf(' ') !== -1) {
-//         return false;
-//     }
-//     if (password.indexOf(username) !== -1) {
-//         return false;
-//     }
-//     return true;
-// }
+function isValidasiPassword(username = '', password = '') {
+    if (password.length < 8) {
+        return false;
+    }
+    if (password.indexOf(' ') !== -1) {
+        return false;
+    }
+    if (password.indexOf(username) !== -1) {
+        return false;
+    }
+    return true;
+}
 
-// const hasilValidasiPassword = isValidasiPassword('kucingmeong', 'kucingloncat');
-// const hasilValidasiPassword2 = isValidasiPassword('katak', 'katakloncat');
-// console.log('VALIDASI PASSWORD ', hasilValidasiPassword);
-// console.log('VALIDASI PASSWORD 2 ', hasilValidasiPassword2);
+const hasilValidasiPassword = isValidasiPassword('kucingmeong', 'kucingloncat');
+const hasilValidasiPassword2 = isValidasiPassword('katak', 'katakloncat');
+console.log('VALIDASI PASSWORD ', hasilValidasiPassword);
+console.log('VALIDASI PASSWORD 2 ', hasilValidasiPassword2);
 
 const validasiPasswordShorts = (username = '', password = '') => {
     const isPendekPass = password.length < 8;
