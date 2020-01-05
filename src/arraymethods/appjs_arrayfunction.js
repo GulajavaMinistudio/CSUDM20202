@@ -127,3 +127,49 @@ console.log('KUADRAT BILANGAN', kuadratBilangan(3, 8));
 console.log('KUADRAT BILANGAN', isGenapBilangan(8));
 console.log('KUADRAT BILANGAN ONE LINE', isGenapOneLine(9));
 console.log('KUADRAT BILANGAN ONE LINE', ganjilGenapFuncs);
+
+// FIND ARRAY FIND RETURN NILAI YANG PERTAMA KALI COCOK
+const arrayFilm = [
+    'Telenovela Latin',
+    'Sinetron Ojek',
+    'Pahlawan Kesiangan',
+    'Cicak dan Buaya',
+];
+
+const film = arrayFilm.find(judulfilm => {
+    // kembalikan nilai true atau false dengan includes
+    const statusFilm = judulfilm.toLowerCase().includes('siang');
+    return statusFilm;
+});
+
+console.log('FILM DITEMUKAN ', film);
+const arrayBuku = [
+    {
+        judul: 'Matematika',
+        penulis: ['Pak Guru A', 'Pak Guru B'],
+        rating: 4.25,
+    },
+    {
+        judul: 'Bahasa Indonesia',
+        penulis: ['Pak Guru AB', 'Pak Guru BC'],
+        rating: 5.5,
+    },
+    {
+        judul: 'Sejarah',
+        penulis: ['Pak Guru DA', 'Pak Guru DE'],
+        rating: 3.15,
+    },
+];
+
+const bukuBagus = arrayBuku.find(buku => {
+    const isBukuCocok = buku.rating >= 4.5;
+    return isBukuCocok;
+});
+
+const cariPenulis = arrayBuku.find(buku => {
+    const isBukuPenulisCocok = buku.penulis.includes('Pak Guru DA');
+    return isBukuPenulisCocok;
+});
+
+console.log('BUKU BAGUS ', bukuBagus);
+console.log('CARI PENULIS', cariPenulis);
