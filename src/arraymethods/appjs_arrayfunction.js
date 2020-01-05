@@ -100,3 +100,30 @@ function getJudulBuku() {
 console.log('KONVERSI HURUF BESAR ', konversiHurufBesar());
 console.log('KONVERSI HURUF TITIK', konversiTitikHuruf());
 console.log('KONVERSI JUDUL BUKU ', getJudulBuku());
+
+// ARROW FUNCTION
+const kuadratBilangan = (nilaiX, nilaiY) => {
+    return nilaiX * nilaiY;
+};
+
+const isGenapBilangan = nilaiBilangan => {
+    return nilaiBilangan % 2 === 0;
+};
+
+const isGenapOneLine = nilaiBilangan => nilaiBilangan % 2 === 0;
+
+const ganjilGenapBilangan = [20, 21, 22, 23, 24, 25, 26, 27];
+const ganjilGenapFuncs = ganjilGenapBilangan.map((bilangan, indeks) => {
+    const statusbilangan =
+        bilangan % 2 === 0 ? 'bilangan genap' : 'bilangan ganjil';
+    return {
+        urutan: indeks,
+        bilangan: bilangan,
+        status: statusbilangan,
+    };
+});
+
+console.log('KUADRAT BILANGAN', kuadratBilangan(3, 8));
+console.log('KUADRAT BILANGAN', isGenapBilangan(8));
+console.log('KUADRAT BILANGAN ONE LINE', isGenapOneLine(9));
+console.log('KUADRAT BILANGAN ONE LINE', ganjilGenapFuncs);
