@@ -173,3 +173,86 @@ const cariPenulis = arrayBuku.find(buku => {
 
 console.log('BUKU BAGUS ', bukuBagus);
 console.log('CARI PENULIS', cariPenulis);
+
+// FILTER ARRAY
+// Membuat array baru berdasarkan kondisi yang telah ditentukan
+const listBilangan = [34, 35, 67, 54, 109, 102, 32, 9];
+
+const cekBilanganGanjil = (arrays = []) => {
+    const arrayGanjil = arrays.filter(nums => {
+        const isGanjil = nums % 2 === 1;
+        return isGanjil;
+    });
+    return arrayGanjil;
+};
+
+const cekBilanganGenap = (arrays = []) => {
+    const arrayGenap = arrays.filter(nums => {
+        const isGenap = nums % 2 === 0;
+        return isGenap;
+    });
+
+    return arrayGenap;
+};
+
+function cekBilanganBesar(arrays = []) {
+    const bilanganBesarList = arrays.filter(nums => {
+        const isBesar = nums > 50;
+        return isBesar;
+    });
+
+    return bilanganBesarList;
+}
+
+console.log('HASIL FILTER GANJIL', cekBilanganGanjil(listBilangan));
+console.log('HASIL FILTER GENAP', cekBilanganGenap(listBilangan));
+console.log('HASIL FILTER BILANGAN BESAR', cekBilanganBesar(listBilangan));
+
+const arrayBukuBesar = [
+    {
+        judul: 'Matematika',
+        penulis: ['Pak Guru A', 'Pak Guru B'],
+        rating: 4.25,
+        genres: ['Fiksi'],
+    },
+    {
+        judul: 'Bahasa Indonesia',
+        penulis: ['Pak Guru AB', 'Pak Guru BC'],
+        rating: 5.5,
+        genres: ['Epic'],
+    },
+    {
+        judul: 'Sejarah',
+        penulis: ['Pak Guru DA', 'Pak Guru DE'],
+        rating: 4.75,
+        genres: ['Dongeng'],
+    },
+    {
+        judul: 'Sejarah Kuno',
+        penulis: ['Pak Guru DA', 'Pak Guru DE'],
+        rating: 4.85,
+        genres: ['Dongeng'],
+    },
+];
+
+const bukuBagusBesar = arrayBukuBesar.filter(buku => {
+    return buku.rating > 4.5;
+});
+
+const bukuDongengFiksi = arrayBukuBesar.filter(buku => {
+    const isBukuDongeng =
+        buku.genres.includes('Dongeng') || buku.genres.includes('Epic');
+    return isBukuDongeng;
+});
+
+const kunciPencarian = 'seja';
+const hasilPencarian = arrayBukuBesar.filter(buku => {
+    const kuncilowercase = kunciPencarian.toLowerCase();
+    const judulbuku = buku.judul.toLowerCase();
+    const isCocokBuku = judulbuku.includes(kuncilowercase);
+    return isCocokBuku;
+});
+
+console.log('BUKU BAGUS ', bukuBagusBesar);
+console.log('BUKU DONGENG FIKSI', bukuDongengFiksi);
+console.log('BUKU CARI', hasilPencarian);
