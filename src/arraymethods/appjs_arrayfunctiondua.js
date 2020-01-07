@@ -239,7 +239,7 @@ const listVoting = [
     'n',
     'y',
     'n',
-    'n',
+    'abstain',
     'n',
     'y',
     'y',
@@ -257,4 +257,58 @@ const hasilVoting = listVoting.reduce((totalVote, currentVal) => {
     return objectVote;
 }, {});
 
+const hasilVotingOneLine = listVoting.reduce((totalvote, currentval) => {
+    const totalVote = totalvote;
+    totalVote[currentval] = (totalVote[currentval] || 0) + 1;
+    return totalVote;
+}, {});
+
 console.log('HASIL HITUNG VOTE ', hasilVoting);
+console.log('HASIL HITUNG VOTE SHORT HAND ', hasilVotingOneLine);
+
+const listBukuReduced = [
+    {
+        judul: 'Matematika',
+        penulis: ['Pak Guru A', 'Pak Guru B'],
+        rating: 4.25,
+        genres: ['Fiksi'],
+    },
+    {
+        judul: 'Bahasa Indonesia',
+        penulis: ['Pak Guru AB', 'Pak Guru BC'],
+        rating: 5,
+        genres: ['Epic'],
+    },
+    {
+        judul: 'Bahasa Inggris A',
+        penulis: ['Pak Guru AB', 'Pak Guru BC'],
+        rating: 5,
+        genres: ['Epic'],
+    },
+    {
+        judul: 'Sejarah',
+        penulis: ['Pak Guru DA', 'Pak Guru DE'],
+        rating: 3.75,
+        genres: ['Dongeng'],
+    },
+    {
+        judul: 'Sejarah Kuno',
+        penulis: ['Pak Guru DA', 'Pak Guru DE'],
+        rating: 2.85,
+        genres: ['Dongeng'],
+    },
+];
+
+const grupRatingBuku = listBukuReduced.reduce((grupBuku, currentBuku) => {
+    const ratingBukuObj = grupBuku;
+    const ratingBuku = Math.floor(currentBuku.rating);
+    const keyRatingBuku = `rating${ratingBuku}`;
+
+    if (!ratingBukuObj[keyRatingBuku]) {
+        ratingBukuObj[keyRatingBuku] = [];
+    }
+    ratingBukuObj[keyRatingBuku].push(currentBuku);
+    return ratingBukuObj;
+}, {});
+
+console.log('GRUP BUKU DENGAN RATING ', grupRatingBuku);
