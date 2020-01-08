@@ -124,5 +124,133 @@ const fungsiPerkalian = (...bilangans) => {
     return hasilKali;
 };
 
+function gantiIsiArray(...arrayKata) {
+    const arrayHasil = arrayKata.reduce((accKota, currentval) => {
+        const kataManipulasi = `Kota ${currentval}`;
+        accKota.push(kataManipulasi);
+        return accKota;
+    }, []);
+
+    return arrayHasil;
+}
+
+console.log(
+    'Hasil ganti kata REST PARAMS',
+    gantiIsiArray('Bandung', 'Semarang', 'Jakarta'),
+);
+
 console.log('Hasil perkalian REST PARAMS ', fungsiPerkalian(4, 5, 6, 7));
 console.log('Hasil perkalian REST PARAMS ', fungsiPerkalian(2, 3, 4));
+
+// DESTRUCTURING ARRAY
+const arrayKota = [
+    'Monroehaven',
+    'Jonesview',
+    'Collinsburgh',
+    'Lake Pearl',
+    'Morocco',
+];
+
+const [kotaPertama, kotaKedua, ...kotaSisa] = arrayKota;
+// MELOMPATI beberapa langkah untuk mengambil nilai di indeks tertentu
+const [kotaSkipAwal, , , kotaAkhir] = arrayKota;
+const [kotaPemenang, ...kotaTidakMenang] = arrayKota;
+
+console.log('Daftar nama kota', kotaPertama, kotaKedua);
+console.log('Daftar nama kota sisa', kotaSisa);
+console.log('Daftar nama kota skip', kotaSkipAwal, kotaAkhir);
+console.log('Kota pemenang dan sisa', kotaPemenang, kotaTidakMenang);
+
+// DESTRUCTURING OBJECT
+const profilKota = {
+    namadepan: 'Robin',
+    namabelakang: 'Murphy',
+    negara_asal: 'Georgia',
+    alamatlain: '2030 Greenfelder Mountain',
+};
+
+const {
+    namadepan,
+    namabelakang,
+    negara_asal: negaraAsal,
+    alamatlain,
+} = profilKota;
+
+// MAPPING Object Destructuring dengan nama variabel berbeda
+const { alamatlain: alamatLengkap, namadepan: namaPanggilan } = profilKota;
+const { namadepan: namaDepanLagi, ...datalain } = profilKota;
+
+console.log(
+    'Object Destructuring Awal',
+    namadepan,
+    namabelakang,
+    negaraAsal,
+    alamatlain,
+);
+
+console.log('Object Destructuring Alias', alamatLengkap, namaPanggilan);
+console.log('Object Destructuring Spread Operator', namaDepanLagi, datalain);
+
+// DESTRUCTURING NESTED TIDAK DIREKOMENDASIKAN
+const daftarKota = [
+    {
+        namakota: 'Bedfordshire',
+        alamatKota: '080 Elvie Run',
+        namalengkap: 'Candelario Harris',
+    },
+    {
+        namakota: 'Berkshire',
+        alamatKota: '9729 Antonio Ports',
+        namalengkap: 'Roberta Graham',
+    },
+    {
+        namakota: 'Cambridgeshire',
+        alamatKota: '25245 Hauck Mission',
+        namalengkap: 'Emie Upton',
+    },
+];
+
+// tidak dianjutkan karena nested object yang banyak
+// menjadi semakin susah dipahami dan dibaca
+const [{ namakota: namaKotaAwal }, { alamatKota: alamatDua }] = daftarKota;
+console.log('NESTED Nama kota awal', namaKotaAwal, alamatDua);
+
+// Cara lain yang lebih mudah dibaca
+const [, , kotaKetiga] = daftarKota;
+const { namakota: namaKotaTiga, alamatKota: alamatKotaTiga } = kotaKetiga;
+
+console.log('NESTED Kota Ketiga', kotaKetiga);
+console.log('NESTED OBJECT DESTRUCTURING', namaKotaTiga, alamatKotaTiga);
+
+// DESTRUCTURING PARAMETER DARI FUNGSI
+const namaKotaParams = {
+    namakota: 'Bedfordshire',
+    alamatkota: '080 Elvie Run',
+    namalengkap: 'Candelario Harris',
+};
+
+function printKotaParams(kota) {
+    const { namakota, alamatkota, namalengkap } = kota;
+    console.log(`PARAM DESTRUCTURING ${namakota} ${alamatkota} ${namalengkap}`);
+}
+
+function printKotaParamsAlamat({ alamatkota: stringAlamatKota }) {
+    console.log(`PARAM DESTRUCTURING Alamat kota ${stringAlamatKota}`);
+}
+
+printKotaParams(namaKotaParams);
+printKotaParamsAlamat(namaKotaParams);
+
+const responseData = ['85.150.70.22', 'janet.biz', 'https'];
+
+const parseResponseData = response => {
+    const [alamatip, domainip, protokol] = response;
+    console.log(`Alamat response data ${alamatip} ${domainip} ${protokol}`);
+};
+
+const parseResponseDataDestructuring = ([alamatip, domainip, protokol]) => {
+    console.log(`Alamat response data ${alamatip} ${domainip} ${protokol}`);
+};
+
+parseResponseData(responseData);
+parseResponseDataDestructuring(responseData);
