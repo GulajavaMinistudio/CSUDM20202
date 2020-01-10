@@ -93,3 +93,52 @@ console.log(
     addPropsComputedProperty(sampelObject, hakAksesDua, namaOrangTiga),
     addPropsCompPropsOneLiner(sampelObject, hakAksesDua, namaOrangTiga),
 );
+
+// OBJECTFUNCTION OBJECT METHODS
+// Menambahkan object ke dalam method
+const fungsiTambah = function(nilaiX, nilaiY) {
+    return nilaiX + nilaiY;
+};
+
+const fungsiMatematika = {
+    nilaiBilangan: [1, 2, 3, 4, 5],
+    fungsiTambah,
+    fungsiTambahLangsung: function(nilaiX, nilaiY) {
+        return nilaiX + nilaiY;
+    },
+    perkalianBilangan: function(nilaiX, nilaiY) {
+        return nilaiX * nilaiY;
+    },
+};
+
+console.log(
+    'OBJECT FUNCTION',
+    fungsiMatematika.perkalianBilangan,
+    fungsiMatematika.fungsiTambahLangsung(7, 3),
+    fungsiMatematika.fungsiTambah(8, 2),
+);
+
+// OBJECT METHOD SHORTHAND
+// Pintasan membuat fungsi di dalam object
+const authFunc = {
+    loginData() {
+        console.log('SHORTHAND Login masuk');
+    },
+    loginFuncs: function() {
+        console.log('NO SHORTHAND Login Masuk');
+    },
+    logoutData: () => {
+        console.log('LOGOUT ARROW NO SHORTHAND');
+    },
+};
+
+authFunc.loginData();
+authFunc.loginFuncs();
+
+// THIS KEYWORD DI JAVASCRIPT
+function helloThis() {
+    console.log('HELLO THIS');
+    console.log(this);
+}
+
+helloThis();
