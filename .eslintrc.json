@@ -4,7 +4,12 @@
         "es6": true,
         "node": true
     },
-    "extends": ["airbnb", "prettier", "eslint:recommended", "plugin:node/recommended"],
+    "extends": [
+        "airbnb",
+        "prettier",
+        "eslint:recommended",
+        "plugin:node/recommended" // hilangkan jika error eslint muncul
+    ],
     "plugins": ["prettier"],
     "parserOptions": {
         "ecmaVersion": 9,
@@ -19,6 +24,7 @@
         "object-shorthand": "off",
         "class-methods-use-this": "off",
         "semi": "error",
-        "comma-dangle": "error"
+        "comma-dangle": "error",
+        "no-restricted-syntax": "warn"
     }
 }

@@ -139,6 +139,104 @@ authFunc.loginFuncs();
 function helloThis() {
     console.log('HELLO THIS');
     console.log(this);
+    // window.alert('hello this alert');
 }
 
 helloThis();
+
+// THISOBJECT THIS DI DALAM OBJECT UNTUK AKSES PARAMS DI OBJECT
+// Menjalankan fungsi object dan variabel di dalamnya dengan bantuan this.
+const personOrang = {
+    firstname: 'Daniela',
+    lastname: 'Hagenes',
+    nickname: 'Cara Grant',
+    fullName() {
+        // melihat scope window dari object
+        console.log('SCOPE OBJECT', this);
+        console.log('SCOPE OBJECT', this.firstname);
+        console.log('SCOPE OBJECT', this.lastname);
+        const namaLengkap = `Nama lengkap ${this.firstname} ${this.lastname} atau dipanggil dengan ${this.nickname}`;
+        console.log('NAMA LENGKAP OBJECT', namaLengkap);
+    },
+    fullNameLagi() {
+        const { firstname, lastname, nickname } = this;
+        const namaLengkap = `Nama lengkap ${firstname} ${lastname} atau dipanggil dengan ${nickname}`;
+        console.log('NAMA LENGKAP OBJECT 2', namaLengkap);
+    },
+    fullNameCall() {
+        const { firstname, lastname, nickname } = this;
+        const namaLengkap = `Nama lengkap ${firstname} ${lastname} atau dipanggil dengan ${nickname}`;
+        return namaLengkap;
+    },
+    printBiodata() {
+        const namaLengkapData = this.fullNameCall();
+        console.log(`${namaLengkapData} adalah manusia`);
+    },
+    arrowFuncNoThis: () => {
+        console.log(this);
+        // arrow function contextnya ada di global scope
+        // arrow function tidak punya this object scope
+        console.log(
+            'ARROW TANPA THIS',
+            `${this.firstname} bilang ARROW FUNCTIONS`,
+        );
+    },
+};
+
+personOrang.fullName();
+personOrang.fullNameLagi();
+personOrang.nickname = 'Henri Russel';
+personOrang.fullNameLagi();
+personOrang.printBiodata();
+
+// arrow function tanpa this object context
+personOrang.arrowFuncNoThis();
+
+// tidak bisa dengan cara seperti ini , karena object scope
+// akan menjadi global scope
+// pemanggilan fungsi menjadi global
+// const personCall = personOrang.printBiodata();
+// personCall();
+
+// THISOBJECT CONTOH IMPLEMENTASI
+const daftarKalimatPanggil = {
+    timerIdx: '',
+    katakata: [
+        'Incredible Frozen Computer',
+        'Generic Rubber Car',
+        'Small Wooden Table',
+        'Rustic Metal Salad',
+        'Small Metal Gloves',
+        'Small Steel Car',
+    ],
+    getKalimatAcak() {
+        const { katakata } = this;
+        const indexAcak = Math.floor(Math.random() * katakata.length);
+        return { kata: katakata[indexAcak], index: indexAcak };
+    },
+    startAcak() {
+        // set interval mengambil global context
+        // const thats = this;
+        // setInterval(function() {
+        // console.log(thats);
+        // }, 3000);
+
+        // set interval ini tidak mengambil global context
+        // karena arrow function mengambil eksekusi context terdekat yaitu di dalam context object
+        this.timerIdx = setInterval(() => {
+            const kataObject = this.getKalimatAcak();
+            const stringKata = kataObject.kata;
+            console.log('Kata Acak Acak', stringKata);
+            if (kataObject.index === 5) {
+                this.stopAcak();
+            }
+        }, 3000);
+    },
+    stopAcak() {
+        clearInterval(this.timerIdx);
+        console.log('INTERVAL BERHENTI');
+    },
+};
+
+// jalankan kata acak
+daftarKalimatPanggil.startAcak();
