@@ -107,3 +107,70 @@ buttonAcakKartu.addEventListener('click', () => {
     const deckAcakKartu = deckKartuApps.deckKartuHasil;
     deckElement.textContent = JSON.stringify(deckAcakKartu);
 });
+
+// JIKA INGIN DIBUAT MODULAR DENGAN BANYAK PLAYER DECK
+const createDeckKartuPlayer = () => {
+    return {
+        deckKartuHasil: [],
+        deckKartuDiambil: [],
+        jenisKartu: ['Hati', 'Wajik', 'Sekop', 'Keriting'],
+        nomorKartu: '2,3,4,5,6,7,8,9,10,J,Q,K,A',
+        createDeckKartu() {
+            this.deckKartuHasil = [];
+            const { jenisKartu, nomorKartu, deckKartuHasil } = this;
+            const valueSplit = nomorKartu.split(',');
+
+            for (const nokartu of valueSplit) {
+                for (const jeniskartu of jenisKartu) {
+                    const deckKartuItem = { nokartu, jeniskartu };
+                    deckKartuHasil.push(deckKartuItem);
+                }
+            }
+
+            this.deckKartuDiambil = [];
+            this.deckKartuHasil = deckKartuHasil;
+        },
+        drawSatuKartuDeck() {
+            // ambil kartu dari deck tersedia
+            const kartuDiambil = this.deckKartuHasil.pop();
+            this.deckKartuDiambil.push(kartuDiambil);
+            return kartuDiambil;
+        },
+        drawBanyakKartuDeck(jumlahKartu) {
+            const kartuDeckAmbil = [];
+            for (let i = 0; i < jumlahKartu; i += 1) {
+                const drawnCard = this.drawSatuKartuDeck();
+                kartuDeckAmbil.push(drawnCard);
+            }
+            return kartuDeckAmbil;
+        },
+        shuffleAcakKartu(arrays) {
+            const arraykartu = arrays;
+            // acak kartu di deck
+            const panjangArray = arraykartu.length;
+            for (let i = panjangArray - 1; i > 0; i -= 1) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arraykartu[i], arraykartu[j]] = [arraykartu[j], arraykartu[i]];
+            }
+
+            this.deckKartuHasil = arraykartu;
+        },
+        shuffleKartu(arrays) {
+            // Fisher yates shuffle
+            const arraykartu = arrays;
+            let panjangArray = arraykartu.length;
+            while (panjangArray) {
+                const i = Math.floor(Math.random() * (panjangArray -= 1));
+                [arraykartu[panjangArray], arraykartu[i]] = [
+                    arraykartu[i],
+                    arraykartu[panjangArray],
+                ];
+            }
+            return arraykartu;
+        },
+    };
+};
+
+const deckKartuPlayerA = createDeckKartuPlayer();
+deckKartuPlayerA.createDeckKartu();
+console.log(deckKartuPlayerA);

@@ -254,3 +254,11 @@ const parseResponseDataDestructuring = ([alamatip, domainip, protokol]) => {
 
 parseResponseData(responseData);
 parseResponseDataDestructuring(responseData);
+
+const helloReturn = () => {
+    return 'kata kucing';
+};
+
+// string template literals JS
+const kataSusun = `Susunan kata ${helloReturn()}`;
+console.log('KATA SUSUN INI', kataSusun());
