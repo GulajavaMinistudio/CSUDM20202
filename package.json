@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "parcel -p 4200 src/index.html",
     "devcard": "parcel -p 4200 src/index_deckcard.html",
+    "devdom1": "parcel -p 4200 src/doms/index.html",
     "build": "parcel build src/index.html --no-source-maps"
   },
   "author": "Gulajava",
