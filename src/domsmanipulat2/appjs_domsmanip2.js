@@ -56,3 +56,40 @@ setTimeout(() => {
     console.log('Ganti gambar foto kucing');
     gambarSelect.src = 'https://source.unsplash.com/9SWHIgu8A8k';
 }, 3000);
+
+// GETSETATTRIBUTE setAttribute dan getAttribute html pada element tertentu
+// SETATTRIBUTE set nilai ke dalam element dom html
+const rangeAttrEl = document.querySelector(
+    '#form_attribute input[type="range"]',
+);
+
+console.log(
+    rangeAttrEl,
+    'Get Attributenya:',
+    rangeAttrEl.getAttribute('type'),
+    rangeAttrEl.getAttribute('name'),
+    rangeAttrEl.getAttribute('max'),
+    rangeAttrEl.getAttribute('min'),
+    rangeAttrEl.getAttribute('value'),
+);
+
+setTimeout(() => {
+    console.log('GANTI ATTRIBUT RANGE');
+    rangeAttrEl.setAttribute('max', '200');
+    rangeAttrEl.setAttribute('min', '-100');
+    rangeAttrEl.setAttribute('value', '70');
+    console.log(
+        rangeAttrEl,
+        'Get BARU Attributenya:',
+        rangeAttrEl.getAttribute('type'),
+        rangeAttrEl.getAttribute('name'),
+        rangeAttrEl.getAttribute('max'),
+        rangeAttrEl.getAttribute('min'),
+        rangeAttrEl.getAttribute('value'),
+    );
+}, 3000);
+
+setTimeout(() => {
+    console.log('GANTI TIPE RANGE INPUT');
+    rangeAttrEl.setAttribute('type', 'radio');
+}, 5000);

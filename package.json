@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "parcel -p 4200 src/index.html",
     "devcard": "parcel -p 4200 src/index_deckcard.html",
-    "devdom1": "parcel -p 4200 src/doms/index.html",
-    "devdom2": "parcel -p 4200 src/domsmanipulat/index.html",
-    "devdom3": "parcel -p 4200 src/domsmanipulat2/index.html",
+    "devdom": "parcel -p 4200 src/doms/index.html",
+    "devdom1": "parcel -p 4200 src/domsmanipulat/index.html",
+    "devdom2": "parcel -p 4200 src/domsmanipulat2/index.html",
+    "devdom3": "parcel -p 4200 src/domsmanipulat3/index.html",
     "build": "parcel build src/index.html --no-source-maps"
   },
   "author": "Gulajava",
