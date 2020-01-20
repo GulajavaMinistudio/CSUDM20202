@@ -27,3 +27,23 @@ console.log('TEXT CONTENT VS INNER TEXT', elementParagrafDua.textContent);
 
 // INNERTEXT mengambil isi teks yang tampil saja di html tanpa formatting dan
 console.log('INNER TEXT VS TEXT CONTENT', elementParagrafDua.innerText);
+
+// INNERHTML Ambil html tag dari element yang diquery
+const elementForms = document.querySelector('form');
+console.log('INNERHTML FORM', elementForms.innerHTML);
+const elementUlHtml = document.querySelector('#list_urutan');
+const elementUlString = elementUlHtml.innerHTML;
+console.log('INNER HTML UL', elementUlHtml.innerHTML);
+
+// set html baru ke ul bawah
+elementUlHtml.innerHTML = `${elementUlString}<li><b>Urutan Keempat Baru Ditambah</b></li>`;
+const elementUlHtmlBaru = document.querySelector('#list_urutan');
+console.log('INNER HTML UL BARU', elementUlHtmlBaru.innerHTML);
+
+// ganti h1 dengan inner html
+let elementH1InnerHtml = document.querySelector('h1');
+elementH1InnerHtml.innerHTML += ' <i>is Cool !!!!</i>';
+// inner text tidak bisa membaca tag html
+// elementH1InnerHtml.innerText += ' <i>is Cool !!!!</i>';
+elementH1InnerHtml = document.querySelector('h1');
+console.log('INNER HTML BARU', elementH1InnerHtml.innerHTML);
