@@ -1,0 +1,41 @@
+h1 {
+    color: purple;
+    font-size: 60px;
+}
+
+.specialcomputed {
+    color: chocolate;
+    font-size: 30px;
+}
+
+.specialcomputed:hover {
+    color: red;
+    font-size: 50px;
+}
+
+#fotokucing {
+    width: 250px;
+}
+
+.special {
+    color: teal;
+    font-size: 30px;
+    border: 1px solid teal;
+}
+
+input[type="password"] {
+    height: 50px;
+    width: 100px;
+}
+
+/* Manipulasi CSS Class */
+.todo {
+    font-size: 30px;
+    color: olive;
+}
+
+.done {
+    color: salmon;
+    text-decoration: line-through;
+    opacity: 50%;
+}

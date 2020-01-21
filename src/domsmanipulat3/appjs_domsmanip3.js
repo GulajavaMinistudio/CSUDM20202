@@ -53,3 +53,18 @@ console.log(
     'previous element sibling',
     elementKetigaLi.previousElementSibling.previousElementSibling,
 );
+
+// MULTIPLE ELEMENT DOM MANIPULATION
+// Ganti semua li element
+const elSemuaLi = document.querySelectorAll('li');
+const panjangLi = elSemuaLi.length;
+
+setTimeout(() => {
+    console.log('Li semua berubah isinya');
+
+    for (let i = 0; i < panjangLi; i += 1) {
+        elSemuaLi[i].innerText = `Urutan Li yang ini berubah ke ${i}`;
+
+        elSemuaLi[i].innerHTML += ` <b>Urutan ke ${i}</b>`;
+    }
+}, 3000);

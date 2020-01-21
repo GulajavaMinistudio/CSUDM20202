@@ -10,6 +10,7 @@
     "devdom1": "parcel -p 4200 src/domsmanipulat/index.html",
     "devdom2": "parcel -p 4200 src/domsmanipulat2/index.html",
     "devdom3": "parcel -p 4200 src/domsmanipulat3/index.html",
+    "devdom4": "parcel -p 4200 src/domsmanipulat4/index.html",
     "build": "parcel build src/index.html --no-source-maps"
   },
   "author": "Gulajava",
