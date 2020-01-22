@@ -129,6 +129,81 @@ function showTampilanBasket() {
     divElementPertandingan.append(ulParent);
 }
 
-showTampilanBasket();
+// showTampilanBasket();
 
 // REFACTORING FUNGSI
+// DENGAN MENGGUNAKAN FUNGSI UMUM DAN ARROW FUNCTION
+
+const getBarisSkorHasilPertandingan = ({ homeTeam, awayTeam }) => {
+    const { team: nameTeamHome, points: pointsTeamHome } = homeTeam;
+    const { team: nameTeamAway, points: pointsTeamAway } = awayTeam;
+
+    let timPertandingan = `Pertandingan ${nameTeamAway} vs ${nameTeamHome}`;
+    let skorPertandingan = `Skor Akhir ${pointsTeamAway} - ${pointsTeamHome}`;
+
+    if (pointsTeamAway > pointsTeamHome) {
+        timPertandingan = `Pertandingan <b>${nameTeamAway}</b> vs ${nameTeamHome}`;
+        skorPertandingan = `Skor Akhir <b>${pointsTeamAway}</b> - ${pointsTeamHome}`;
+    } else {
+        timPertandingan = `Pertandingan ${nameTeamAway} vs <b>${nameTeamHome}</b>`;
+        skorPertandingan = `Skor Akhir ${pointsTeamAway} -  <b>${pointsTeamHome}</b>`;
+    }
+
+    const hasilPertandingan = `${timPertandingan} dengan ${skorPertandingan}`;
+    return hasilPertandingan;
+};
+
+const cekStatusPemenangTim = ({ homeTeam, awayTeam }, targetTimPantau) => {
+    const objectJagoanMenangGoldenState =
+        homeTeam.team === targetTimPantau ? homeTeam : awayTeam;
+
+    const isJagoanMenangClass = objectJagoanMenangGoldenState.isWinner
+        ? 'win'
+        : 'lose';
+    return isJagoanMenangClass;
+};
+
+const buatChartHasilPertandingan = (gameDataJson, targetTeamPantau) => {
+    // buat element ul parent
+    const ulParent = document.createElement('ul');
+
+    const panjangArray = gameDataJson.length;
+    for (let i = 0; i < panjangArray; i += 1) {
+        const pertandingan = gameDataJson[i];
+
+        const liElementPertandingan = document.createElement('li');
+        const barisPertandingan = getBarisSkorHasilPertandingan(pertandingan);
+
+        const isJagoanMenangClass = cekStatusPemenangTim(
+            pertandingan,
+            targetTeamPantau,
+        );
+
+        liElementPertandingan.innerHTML = barisPertandingan;
+        liElementPertandingan.classList.add(isJagoanMenangClass);
+
+        // tambahkan ke dalam ul element
+        ulParent.appendChild(liElementPertandingan);
+    }
+
+    // tambahkan ke element html
+    return ulParent;
+};
+
+const chartDataElementGoldenState = buatChartHasilPertandingan(
+    warriorsGames,
+    'Golden State',
+);
+
+const chartDataElementHouston = buatChartHasilPertandingan(
+    warriorsGames,
+    'Houston',
+);
+
+const elementPapanSkorSatu = document.querySelector('#papan_skor1');
+const elementPapanSkorDua = document.querySelector('#papan_skor2');
+
+// tambahkan element
+// elementPapanSkorSatu.appendChild(chartDataElementGoldenState);
+elementPapanSkorSatu.prepend(chartDataElementGoldenState);
+elementPapanSkorDua.prepend(chartDataElementHouston);
