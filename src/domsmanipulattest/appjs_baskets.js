@@ -84,3 +84,51 @@ const warriorsGames = [
         },
     },
 ];
+
+function showTampilanBasket() {
+    const ulParent = document.createElement('ul');
+
+    const panjangArray = warriorsGames.length;
+    for (let i = 0; i < panjangArray; i += 1) {
+        const pertandingan = warriorsGames[i];
+        const { awayTeam, homeTeam } = pertandingan;
+
+        const { team: nameTeamHome, points: pointsTeamHome } = homeTeam;
+        const { team: nameTeamAway, points: pointsTeamAway } = awayTeam;
+
+        const liElementPertandingan = document.createElement('li');
+        let timPertandingan = `Pertandingan ${nameTeamAway} vs ${nameTeamHome}`;
+        let skorPertandingan = `Skor Akhir ${pointsTeamAway} - ${pointsTeamHome}`;
+
+        if (pointsTeamAway > pointsTeamHome) {
+            timPertandingan = `Pertandingan <b>${nameTeamAway}</b> vs ${nameTeamHome}`;
+            skorPertandingan = `Skor Akhir <b>${pointsTeamAway}</b> - ${pointsTeamHome}`;
+        } else {
+            timPertandingan = `Pertandingan ${nameTeamAway} vs <b>${nameTeamHome}</b>`;
+            skorPertandingan = `Skor Akhir ${pointsTeamAway} -  <b>${pointsTeamHome}</b>`;
+        }
+
+        const objectJagoanMenangGoldenState =
+            nameTeamHome === 'Golden State' ? homeTeam : awayTeam;
+
+        const isJagoanMenangClass = objectJagoanMenangGoldenState.isWinner
+            ? 'win'
+            : 'lose';
+
+        liElementPertandingan.innerHTML = `${timPertandingan} dengan ${skorPertandingan}`;
+        liElementPertandingan.classList.add(isJagoanMenangClass);
+
+        // tambahkan ke dalam ul element
+        ulParent.appendChild(liElementPertandingan);
+    }
+
+    // tambahkan ke element html
+    const divElementPertandingan = document.querySelector(
+        '#hasil_pertandingan',
+    );
+    divElementPertandingan.append(ulParent);
+}
+
+showTampilanBasket();
+
+// REFACTORING FUNGSI
