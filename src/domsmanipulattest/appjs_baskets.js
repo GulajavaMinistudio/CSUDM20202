@@ -134,6 +134,13 @@ function showTampilanBasket() {
 // REFACTORING FUNGSI
 // DENGAN MENGGUNAKAN FUNGSI UMUM DAN ARROW FUNCTION
 
+const isTimAwayMenang = (pointTeamAway, pointTeamHome) => {
+    if (pointTeamAway > pointTeamHome) {
+        return true;
+    }
+    return false;
+};
+
 const getBarisSkorHasilPertandingan = ({ homeTeam, awayTeam }) => {
     const { team: nameTeamHome, points: pointsTeamHome } = homeTeam;
     const { team: nameTeamAway, points: pointsTeamAway } = awayTeam;
@@ -141,7 +148,9 @@ const getBarisSkorHasilPertandingan = ({ homeTeam, awayTeam }) => {
     let timPertandingan = `Pertandingan ${nameTeamAway} vs ${nameTeamHome}`;
     let skorPertandingan = `Skor Akhir ${pointsTeamAway} - ${pointsTeamHome}`;
 
-    if (pointsTeamAway > pointsTeamHome) {
+    const isTeamAwayMenang = isTimAwayMenang(pointsTeamAway, pointsTeamHome);
+
+    if (isTeamAwayMenang) {
         timPertandingan = `Pertandingan <b>${nameTeamAway}</b> vs ${nameTeamHome}`;
         skorPertandingan = `Skor Akhir <b>${pointsTeamAway}</b> - ${pointsTeamHome}`;
     } else {
