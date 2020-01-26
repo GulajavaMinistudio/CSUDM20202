@@ -7,8 +7,8 @@
     "extends": [
         "airbnb",
         "prettier",
-        "eslint:recommended",
-        "plugin:node/recommended" // hilangkan jika error eslint muncul
+        "eslint:recommended"
+       // "plugin:node/recommended" // hilangkan jika error eslint muncul
     ],
     "plugins": ["prettier"],
     "parserOptions": {

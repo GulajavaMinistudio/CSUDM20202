@@ -15,7 +15,9 @@
     "devdom6": "parcel -p 4200 src/domsmanipulat6/index.html",
     "devdombasket": "parcel -p 4200 src/domsmanipulattest/index.html",
     "devdomevent1": "parcel -p 4200 src/eventsp1/index.html",
-    "build": "parcel build src/index.html --no-source-maps"
+    "devdomevent1test": "parcel -p 4200 src/eventsp1testing/index.html",
+    "build": "parcel build src/index.html --no-source-maps",
+    "deploygithub": "parcel build index.html --public-url /githubdomain/"
   },
   "author": "Gulajava",
   "license": "MIT",
