@@ -1,9 +1,15 @@
 // LISTENER EVENT TOMBOL BERGERAK
 // TOMBOL YANG SUSAH DI KLIK
 const getRandomPosisiAcak = () => {
+    // kalkulasi posisi baru dengan inner height dan inner width
+    const { innerWidth } = window;
+    const { innerHeight } = window;
+
+    const randomWidth = Math.floor(Math.random() * innerWidth);
+    const randomHeight = Math.floor(Math.random() * innerHeight);
     return {
-        width: 0,
-        height: 0,
+        width: randomWidth,
+        height: randomHeight,
     };
 };
 
@@ -19,14 +25,20 @@ function addListenerTombolGerak() {
     const tombolNakalEl = document.querySelector('#tombol_nakals');
 
     tombolNakalEl.addEventListener('mouseover', function() {
-        console.log('TEST Mouse Over Saya');
-        tombolNakalEl.style.left = '200px';
-        tombolNakalEl.style.top = '100px';
+        const moveObject = getRandomPosisiAcak();
+        tombolNakalEl.innerText = 'Tidak Bisa Klik Saya :P';
+
+        tombolNakalEl.classList.add('red');
+        tombolNakalEl.classList.remove('green');
+
+        tombolNakalEl.style.left = `${moveObject.width}px`;
+        tombolNakalEl.style.top = `${moveObject.height}px`;
     });
 
     tombolNakalEl.addEventListener('click', function() {
-        console.log('HORE, Saya berhasil di klik');
-        console.log(window);
+        tombolNakalEl.innerText = 'Selamat Anda Berhasil Klik Saya, 100 jempol';
+        tombolNakalEl.classList.add('green');
+        tombolNakalEl.classList.remove('red');
         clickFungsiNewTab();
     });
 }
