@@ -17,6 +17,7 @@
     "devdomevent1": "parcel -p 4200 src/eventsp1/index.html",
     "devdomevent1test": "parcel -p 4200 src/eventsp1testing/index.html",
     "devdomevent2": "parcel -p 4200 src/eventsp2/index.html",
+    "deveventgame": "parcel -p 4200 src/eventsp3gamecoin/index.html",
     "build": "parcel build src/index.html --no-source-maps",
     "deploygithub": "parcel build src/index.html --public-url /githubdomain/"
   },
