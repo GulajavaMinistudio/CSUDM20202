@@ -39,3 +39,10 @@ for (let i = 0; i < panjangArray; i += 1) {
     // berikan listener
     kotakElement.addEventListener('click', cetakWarnaKotak);
 }
+
+// KEYPRESS EVENT OBJECT
+const inputKeyPress = document.querySelector('div #inputkey');
+inputKeyPress.addEventListener('keypress', event => {
+    console.log(event);
+    console.log('Key Ditekan', event.key, event.keyCode);
+});
