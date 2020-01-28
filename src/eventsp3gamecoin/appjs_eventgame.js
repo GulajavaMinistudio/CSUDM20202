@@ -1,8 +1,9 @@
 // GAMEDEMO DENGAN EVENT HANDLER
 const playerImage = document.querySelector('#player');
 const koinImage = document.querySelector('#coin');
+const h1ElementSkor = document.querySelector('#skorh1');
 
-const totalPoin = 0;
+let totalPoin = 0;
 
 const isTouchingCoin = (a, b) => {
     const aRect = a.getBoundingClientRect();
@@ -18,6 +19,8 @@ const isTouchingCoin = (a, b) => {
 
 const skorKoinTambah = () => {
     // tambah skor koin jika berhasil menyentuh
+    totalPoin += 1;
+    h1ElementSkor.innerText = `Skor Koin : ${totalPoin}`;
 };
 
 const ekstrakPosisiPlayer = stringPosisi => {
@@ -89,6 +92,7 @@ const setEventListenerPlayer = () => {
 
         // jika player menyentuh koin
         if (isTouchingCoin(playerImage, koinImage)) {
+            skorKoinTambah();
             pindahKoin();
         }
     });
