@@ -60,14 +60,12 @@ const isHariWeekday = (date = new Date()) => {
     return date.getDay() % 6 !== 0;
 };
 
-const getTanggalBesok = () => {
-    const dates = new Date();
+const getTanggalBesok = (dates = new Date()) => {
     dates.setDate(dates.getDate() + 1);
     return dates.toISOString().split('T')[0];
 };
 
-const getTanggalKemarin = () => {
-    const dates = new Date();
+const getTanggalKemarin = (dates = new Date()) => {
     dates.setDate(dates.getDate() - 1);
     return dates.toISOString().split('T')[0];
 };
@@ -85,4 +83,19 @@ console.log(
 );
 
 console.log('Minta tanggal besok: ', getTanggalBesok());
+console.log('Minta tanggal besok: ', getTanggalBesok(new Date('2020-01-30')));
+
 console.log('Minta tanggal kemarin: ', getTanggalKemarin());
+
+const palindrome = str => {
+    const s = str.toLowerCase().replace(/[\W_]/g, '');
+    return s === [...s].reverse().join('');
+};
+
+// CONTOH;
+console.log('Apakah "Taco Cat" adalah palindrome ? ', palindrome('taco cat'));
+
+console.log(
+    'Apakah "Was it a cat I saw?" adalah palindrome ? ',
+    palindrome('Was it a cat I saw'),
+);
