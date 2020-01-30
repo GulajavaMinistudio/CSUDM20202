@@ -73,7 +73,7 @@ const getTanggalKemarin = (dates = new Date()) => {
 console.log('Hari ini adalah hari Weekend? ', isHariWeekend());
 
 console.log(
-    'Tanggal 2020-01-11 adalah hari Weekend? ',
+    'Tanggal 2020-01-11 adalah hari Weekend?',
     isHariWeekend(new Date('2020-01-11')),
 );
 

@@ -20,7 +20,9 @@
     "deveventgamekoin": "parcel -p 4200 src/eventsp3gamecoin/index.html",
     "devdomevent4": "parcel -p 4200 src/eventsp4/index.html",
     "build": "parcel build src/index.html --no-source-maps",
-    "deploygithub": "parcel build src/index.html --public-url /githubdomain/"
+    "deploygithub": "parcel build src/index.html --public-url /githubdomain/",
+    "devcallback1": "parcel -p 4200 src/asyncjs/async1/index.html",
+    "devcallback2": "parcel -p 4200 src/asyncjs/async2/index.html"
   },
   "author": "Gulajava",
   "license": "MIT",
