@@ -163,14 +163,3 @@ gerakTombolXCallback(
         console.log('Tidak bisa bergerak lagi');
     },
 );
-
-// const listTabelBodyElement = document.querySelectorAll('#tabel tbody td');
-
-// const elementHide = [];
-// for (let i = 0; i < listTabelBodyElement.length; i += 1) {
-//     if (listTabelBodyElement[i].style.display === 'none') {
-//         elementHide.push(listTabelBodyElement[i]);
-//     }
-// }
-
-// console.log(elementHide);

@@ -99,3 +99,40 @@ console.log(
     'Apakah "Was it a cat I saw?" adalah palindrome ? ',
     palindrome('Was it a cat I saw'),
 );
+
+const kapitalisasiHurufPertamaKata = (
+    [charAwal, ...charSisa],
+    lowerSisa = false,
+) => {
+    const charAwalUp = charAwal.toUpperCase();
+    const charSisaLower = lowerSisa
+        ? charSisa.join('').toLowerCase()
+        : charSisa.join('');
+    return `${charAwalUp}${charSisaLower}`;
+};
+
+const kapitalisasiKarakterDiKalimat = (stringKalimat, lowerSisa = false) => {
+    const arrayKata = stringKalimat.split(' ');
+    const arrayKataUppercased = arrayKata.map(kata =>
+        kapitalisasiHurufPertamaKata(kata, lowerSisa),
+    );
+    return arrayKataUppercased.join(' ');
+};
+
+// CONTOH
+console.log(kapitalisasiHurufPertamaKata('fooBar'));
+console.log(kapitalisasiHurufPertamaKata('fooBarCat', true));
+console.log(
+    kapitalisasiKarakterDiKalimat('taco cat playing foobarCatWalk', true),
+);
+
+// const listTabelBodyElement = document.querySelectorAll('#tabel tbody td');
+
+// const elementHide = [];
+// for (let i = 0; i < listTabelBodyElement.length; i += 1) {
+//     if (listTabelBodyElement[i].style.display === 'none') {
+//         elementHide.push(listTabelBodyElement[i]);
+//     }
+// }
+
+// console.log(elementHide);

@@ -22,7 +22,8 @@
     "build": "parcel build src/index.html --no-source-maps",
     "deploygithub": "parcel build src/index.html --public-url /githubdomain/",
     "devcallback1": "parcel -p 4200 src/asyncjs/async1/index.html",
-    "devcallback2": "parcel -p 4200 src/asyncjs/async2/index.html"
+    "devcallback2": "parcel -p 4200 src/asyncjs/async2/index.html",
+    "devcallback3": "parcel -p 4200 src/asyncjs/async3/index.html"
   },
   "author": "Gulajava",
   "license": "MIT",
