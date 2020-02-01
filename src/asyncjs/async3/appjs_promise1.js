@@ -58,3 +58,50 @@ getPromiseDataTunda()
     .catch(error => {
         console.log(error);
     });
+
+const requestPalsu = urls => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const halaman = {
+                '/users': [
+                    { id: 1, username: 'Kacang' },
+                    { id: 2, username: 'Tempe' },
+                ],
+                '/about': 'Halaman tentang about page',
+            };
+
+            const dataresp = halaman[urls];
+            if (dataresp) {
+                resolve(dataresp);
+            } else {
+                // reject(new Error(JSON.stringify({ error: 404 })));
+                // eslint-disable-next-line prefer-promise-reject-errors
+                reject({ status: 404 });
+            }
+        }, 3000);
+    });
+};
+
+requestPalsu('/users')
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+requestPalsu('/about')
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+requestPalsu('/login')
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.log(error.status);
+    });

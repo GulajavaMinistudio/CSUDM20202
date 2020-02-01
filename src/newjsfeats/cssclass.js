@@ -136,3 +136,38 @@ console.log(
 // }
 
 // console.log(elementHide);
+
+// Error handling sederhana di Promise dan Async Await
+const getDataNilai = params => {
+    return new Promise((resolve, reject) => {
+        try {
+            // proses Input Output lewat http request
+            // proses pengolahan data yang banyak
+            // ......
+            const result = 'dummy result';
+            resolve(result);
+        } catch (errors) {
+            // error
+            reject(errors);
+        }
+    });
+};
+
+// Error Handling Promise
+getDataNilai('sampel params')
+    .then(result => {
+        // result sukses dan olah data jika sukses
+    })
+    .catch(error => {
+        // proses gagal, lakukan error handling
+    });
+
+// Async Await
+const getDataAsync = async () => {
+    try {
+        const result = await getDataNilai('sampel params');
+        // olah data result jika berhasil
+    } catch (err) {
+        // error handling untuk error dari promise
+    }
+};
