@@ -153,10 +153,30 @@ const getDataNilai = params => {
     });
 };
 
+// Tanpa try catch handler, error yang muncul akan
+// otomatis masuk ke reject
+const getDataNilaiKedua = params => {
+    return new Promise(resolve => {
+        // proses Input Output lewat http request
+        // proses pengolahan data yang banyak
+        // ......
+        const result = 'dummy result';
+        resolve(result);
+    });
+};
+
 // Error Handling Promise
 getDataNilai('sampel params')
     .then(result => {
         // result sukses dan olah data jika sukses
+    })
+    .catch(error => {
+        // proses gagal, lakukan error handling
+    });
+
+getDataNilaiKedua('any params')
+    .then(result => {
+        // result sukses dari olah data yang berhasil
     })
     .catch(error => {
         // proses gagal, lakukan error handling
