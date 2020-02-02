@@ -182,12 +182,24 @@ getDataNilaiKedua('any params')
         // proses gagal, lakukan error handling
     });
 
-// Async Await
+// Async Await Try Catch
 const getDataAsync = async () => {
     try {
         const result = await getDataNilai('sampel params');
         // olah data result jika berhasil
     } catch (err) {
         // error handling untuk error dari promise
+    }
+};
+
+// Async Await Tanpa Try Catch
+const getDataAsyncNoTryCatch = async () => {
+    const result = await getDataNilai('sampel params').catch(err => {
+        // handling error dari promise await
+    });
+
+    // olah data result jika berhasil
+    if (result) {
+        // result tidak undefined / null
     }
 };
