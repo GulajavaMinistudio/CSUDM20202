@@ -26,7 +26,8 @@
     "devcallback3": "parcel -p 4200 src/asyncjs/async3/index.html",
     "devcallback4": "parcel -p 4200 src/asyncjs/async4/index.html",
     "devhttpreq": "parcel -p 4200 src/asyncjs/async5/index.html",
-    "devhttpfetch": "parcel -p 4200 src/asyncjs/async6/index.html"
+    "devhttpfetch": "parcel -p 4200 src/asyncjs/async6/index.html",
+    "devhttpaxios": "parcel -p 4200 src/asyncjs/async7/index.html"
   },
   "author": "Gulajava",
   "license": "MIT",
@@ -46,5 +47,8 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }

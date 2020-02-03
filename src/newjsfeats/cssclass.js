@@ -223,3 +223,12 @@ last(undefined); // undefined
 const compact = arr => arr.filter(Boolean);
 // EXAMPLES
 compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]); // [ 1, 2, 3, 'a', 's', 34 ]
+
+// Show dan hide element button atau a
+// Ketika di klik
+const aElement = document.querySelector('a');
+
+// Dan yang pasti tanpa jquery dong
+aElement.addEventListener('click', event => {
+    event.target.classList.toggle('hidden');
+});

@@ -1,0 +1,12 @@
+body {
+    font-family: 'Source Code Pro', monospace;
+}
+
+.text-kapal-film {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}

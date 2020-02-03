@@ -174,6 +174,9 @@ const getAllPlanets = () => {
         .then(url => getNextPlanets(url))
         .then(checkStatusParse)
         .then(setPlanetListSemua)
+        .then(url => getNextPlanets(url))
+        .then(checkStatusParse)
+        .then(setPlanetListSemua)
         .catch(error => {
             console.log(error);
         });
