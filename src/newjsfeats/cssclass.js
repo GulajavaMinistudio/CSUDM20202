@@ -203,3 +203,23 @@ const getDataAsyncNoTryCatch = async () => {
         // result tidak undefined / null
     }
 };
+
+// MENGHAPUS NILAI ARRAY YANG KEMBAR DARI ISI ARRAY
+// https://www.30secondsofcode.org/js/s/unique-elements/
+const uniqueElements = arr => [...new Set(arr)];
+// EXAMPLES
+uniqueElements([1, 2, 2, 3, 4, 4, 5]); // [1, 2, 3, 4, 5]
+
+// ANBIL ELEMENT TERAKHIR DI ARRAY
+// https://www.30secondsofcode.org/js/s/last/
+const last = arr => (arr && arr.length ? arr[arr.length - 1] : undefined);
+// EXAMPLES
+last([1, 2, 3]); // 3
+last([]); // undefined
+last(null); // undefined
+last(undefined); // undefined
+
+// HAPUS ISI ARRAY YANG MEMILIKI FALSY VALUE
+const compact = arr => arr.filter(Boolean);
+// EXAMPLES
+compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]); // [ 1, 2, 3, 'a', 's', 34 ]
