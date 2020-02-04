@@ -201,8 +201,67 @@ const getDetailPokemonParalel = async () => {
     }
 };
 
-getDetailPokemonParalel();
+// getDetailPokemonParalel();
 
+const getDetailPokemonParalels = async () => {
+    const optionRequest = {
+        method: 'get',
+        url: '',
+        headers: headerRequest,
+    };
+
+    // Secara paralel dengan async await
+    optionRequest.url = 'https://pokeapi.co/api/v2/pokemon/4/';
+    const promDetailPokemon1 = axiosInstance(optionRequest);
+
+    optionRequest.url = 'https://pokeapi.co/api/v2/pokemon/5/';
+    const promDetailPokemon2 = axiosInstance(optionRequest);
+
+    optionRequest.url = 'https://pokeapi.co/api/v2/pokemon/6/';
+    const promDetailPokemon3 = axiosInstance(optionRequest);
+    try {
+        const resultArrayPromise = await Promise.all([
+            promDetailPokemon1,
+            promDetailPokemon2,
+            promDetailPokemon3,
+        ]);
+
+        console.log('Hasil request paralel pokemon', resultArrayPromise);
+    } catch (err) {
+        console.log(err);
+    }
+
+    try {
+        const resultArrayPromiseSettled = await Promise.allSettled([
+            promDetailPokemon1,
+            promDetailPokemon2,
+            promDetailPokemon3,
+        ]);
+
+        console.log(
+            'Hasil request paralel all settled',
+            resultArrayPromiseSettled,
+        );
+
+        const arrayPokemonSettled = [];
+        resultArrayPromiseSettled.forEach(result => {
+            if (result.status === 'fulfilled') {
+                arrayPokemonSettled.push(result.value.data);
+            }
+        });
+
+        for (let i = 0; i < arrayPokemonSettled.length; i += 1) {
+            const pokemons = arrayPokemonSettled[i];
+            console.log(pokemons.name);
+        }
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+getDetailPokemonParalels();
+
+// ===========================================================
 // Contoh lain menggunakan Async Await Paralel
 const divElement = document.querySelector('#bodywarna');
 
