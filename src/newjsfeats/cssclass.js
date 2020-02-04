@@ -232,3 +232,55 @@ const aElement = document.querySelector('a');
 aElement.addEventListener('click', event => {
     event.target.classList.toggle('hidden');
 });
+
+// Contoh serial proses dan paralel proses dengan Async Await
+const requestContoh = (jeda, urutan) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log(`Proses ke-${urutan} telah selesai dalam ${jeda}ms`);
+            resolve(urutan);
+        }, jeda);
+    });
+};
+
+// Jalankan secara serial
+const serialProses = async () => {
+    const hasil1 = await requestContoh(4000, 1);
+    const hasil2 = await requestContoh(6000, 2);
+    const hasil3 = await requestContoh(2000, 3);
+
+    // cek hasil
+    console.log(hasil1, hasil2, hasil3);
+};
+
+// Jalankan secara paralel
+const paralelProses = async () => {
+    const promiseHasil1 = requestContoh(4000, 1);
+    const promiseHasil2 = requestContoh(6000, 2);
+    const promiseHasil3 = requestContoh(2000, 3);
+
+    // jalankan ketiganya secara paralel bersama sama
+    const hasil1 = await promiseHasil1;
+    const hasil2 = await promiseHasil2;
+    const hasil3 = await promiseHasil3;
+
+    // Setelah ketiganya beres, lakukan cek hasil
+    console.log(hasil1, hasil2, hasil3);
+};
+
+// Jalankan paralel dengan Promise All dan Promise All Settled
+const paralelPromiseAll = async () => {
+    const promiseHasil1 = requestContoh(4000, 1);
+    const promiseHasil2 = requestContoh(6000, 2);
+    const promiseHasil3 = requestContoh(2000, 3);
+
+    const arrayPromise = [promiseHasil1, promiseHasil2, promiseHasil3];
+
+    // jalankan ketiganya secara paralel bersama sama
+    const hasilArrayPromiseAll = await Promise.all(arrayPromise);
+    const hasilArrayPromiseAllSettled = await Promise.allSettled(arrayPromise);
+
+    // Setelah ketiganya beres, lakukan cek hasil
+    console.log(hasilArrayPromiseAll);
+    console.log(hasilArrayPromiseAllSettled);
+};
