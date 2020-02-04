@@ -28,7 +28,8 @@
     "devhttpreq": "parcel -p 4200 src/asyncjs/async5/index.html",
     "devhttpfetch": "parcel -p 4200 src/asyncjs/async6/index.html",
     "devhttpaxios": "parcel -p 4200 src/asyncjs/async7/index.html",
-    "devhttpasyncawait": "parcel -p 4200 src/asyncjs/async8/index.html"
+    "devhttpasyncawait1": "parcel -p 4200 src/asyncjs/async8/index.html",
+    "devhttpasyncawait2": "parcel -p 4200 src/asyncjs/async9/index.html"
   },
   "author": "Gulajava",
   "license": "MIT",

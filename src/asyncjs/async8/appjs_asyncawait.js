@@ -106,6 +106,7 @@ const gerakTombolX = (element, amountX, delayTime) => {
     });
 };
 
+// Multiple Async Await
 async function gerakKeKanan(element, amount) {
     await gerakTombolX(element, amount, 1000);
     await gerakTombolX(element, amount, 1000);
