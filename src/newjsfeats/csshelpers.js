@@ -40,7 +40,7 @@
 // CSSHelper.hide(elButtonSubmit, elButtonCancel);
 // CSSHelper.show(elButtonSubmit, elButtonCancel);
 
-// CSSHelper.setStyle(document.querySelector('p'), 'font-size', '20px');
+// CSSHelper.setStyle(document.querySelector('p'), 'fontSize', '20px');
 
 // if (CSSHelper.hasClass(document.querySelector('p'), 'special')) {
 //     console.log('Aksi jika class ada');
