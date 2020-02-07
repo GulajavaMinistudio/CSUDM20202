@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 // CLASS JS latihan menggunakan class di JavaScript
 
 class Color {
@@ -12,6 +13,10 @@ class Color {
 
     greetWarna() {
         return `Halo dari kumpulan warna ${this.colorName}`;
+    }
+
+    static greetStaticWarna() {
+        console.log('Warna static halo');
     }
 
     getHslColor() {
@@ -108,3 +113,53 @@ warnaElement.style.backgroundColor = warnaMerah.getHslColor();
 
 const warnaElementBalik = document.querySelector('#class_warna_balik');
 warnaElementBalik.style.backgroundColor = warnaMerah.fullSaturated();
+
+Color.greetStaticWarna();
+
+// EXTENDS CLASS
+// SUPER CLASS
+// SUBCLASS CLASS
+
+// Menggunakan subclass inheritance di JavaScript
+class HewanPeliharaan {
+    constructor(nama, umur) {
+        this.stringNama = nama;
+        this.stringUmur = umur;
+    }
+
+    fungsiMakan() {
+        return `Hewan ini ${this.stringNama} sedang makan`;
+    }
+}
+
+class Kucing extends HewanPeliharaan {
+    constructor(nama, umur, hobi = 'tidur') {
+        // Panggil super untuk mengirim ke kelas utama
+        // atau parent class
+        super(nama, umur);
+        this.stringHobi = hobi;
+    }
+
+    fungsiBersuara() {
+        return `Meonggg....`;
+    }
+}
+
+class Ikan extends HewanPeliharaan {
+    fungsiBersuara() {
+        return `Blubuk blubuk blubuk`;
+    }
+
+    // Jika ada nama kelas yang sama, maka isinya akan diganti
+    // dengan fungsi dari kelas yang menurunkannya
+    fungsiMakan() {
+        return `Fungsi makan diambil alih oleh fungsi di Ikan`;
+    }
+}
+
+const kucingLiar = new Kucing('Norang', 2);
+console.log(kucingLiar);
+
+// Dapat mengakses parameter dan fungsi kelas yang diturunkan
+const ikanMas = new Ikan('Lohan', 4);
+console.log(ikanMas.fungsiMakan());
