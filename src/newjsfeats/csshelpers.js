@@ -45,3 +45,43 @@
 // if (CSSHelper.hasClass(document.querySelector('p'), 'special')) {
 //     console.log('Aksi jika class ada');
 // }
+
+// Nilai this di dalam arrow func sama dengan nilai this di luar arrow func
+console.log(this);
+const fungsiThis = () => {
+    console.log(this);
+};
+
+fungsiThis();
+
+// Nilai this adalah object parameter yang dikirim ke dalamnya
+// Hanya untuk bind call dan apply
+const fungsiThisCall = function() {
+    console.log(this);
+};
+
+const fungsiThisApply = function() {
+    console.log(this);
+};
+
+fungsiThisCall.call({ color: 'red' });
+fungsiThisApply.apply({ color: 'hijau' });
+
+// this akan mengikuti context ruang lingkup object
+// fungsi this itu dipanggil
+const warnaObject = {
+    apem: 'tes',
+    cekWarna() {
+        console.log(this);
+    },
+};
+
+// warnaObject.cekWarna();
+
+// this akan berpindah ke object kedua yang memanggilnya
+// dimana object kedua ini ada di sebelah titik sebelum pemanggilan fungsi
+const objectKeduaLagi = {
+    ikan: 'koi',
+};
+objectKeduaLagi.cekWarna = warnaObject.cekWarna;
+objectKeduaLagi.cekWarna();
