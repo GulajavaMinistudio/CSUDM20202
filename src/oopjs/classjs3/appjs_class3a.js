@@ -48,3 +48,38 @@ console.log(kucingLiar);
 // Dapat mengakses parameter dan fungsi kelas yang diturunkan
 const ikanMas = new Ikan('Lohan', 4);
 console.log(ikanMas.fungsiMakan());
+
+class NilaiUjian {
+    constructor(stringNilaiUTS, stringNilaiUAS) {
+        this.stringNilaiUTS = stringNilaiUTS;
+        this.stringNilaiUAS = stringNilaiUAS;
+        this.nilaiFinal = 0.0;
+
+        this.kalkulasiNilaiSekolah();
+    }
+
+    get numericNilaiUTS() {
+        return parseFloat(this.stringNilaiUTS);
+    }
+
+    get numericNilaiUAS() {
+        return parseFloat(this.stringNilaiUAS);
+    }
+
+    set numericRataRata(nilaiRata) {
+        this.nilaiFinal = nilaiRata;
+    }
+
+    get numericRataRata() {
+        return this.nilaiFinal;
+    }
+
+    kalkulasiNilaiSekolah() {
+        this.numericRataRata =
+            (this.numericNilaiUAS + this.numericNilaiUTS) / 2;
+    }
+}
+
+const nilaiSaya = new NilaiUjian(70, 80);
+const nilaiMataKuliah = nilaiSaya.numericRataRata;
+console.log('Nilai ujian saya', nilaiMataKuliah);
