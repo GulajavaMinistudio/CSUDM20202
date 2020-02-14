@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksperimen JS</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+    <!-- AUTOCOMPLETE INPUT DENGAN DATALIST -->
+    <div id="autocomplete">
+        <label for="pilih-hewan">Pilih Nama Hewan :</label>
+        <input list="list-nama" id="pilih-hewan" name="pilih-hewan" />
+
+        <datalist id="list-nama">
+            <option value="Lele">
+            <option value="Tongkol">
+            <option value="Mujair">
+        </datalist>
+
+    </div>
+
+</body>
+<script src="app.js" defer></script>
+</html>

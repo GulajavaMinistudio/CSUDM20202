@@ -183,3 +183,46 @@ const getAllPlanets = () => {
 };
 
 getAllPlanets();
+
+// GET http://www.omdbapi.com/?apikey=0&i=tt0121766
+// https://developer.mozilla.org/en-US/docs/Web/API/URL
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+// https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams\
+// https://stackoverflow.com/questions/35038857/setting-query-string-using-fetch-get-request
+const url = new URL('http://www.omdbapi.com');
+const parameters = { apikey: '', i: 'tt0121766' };
+url.search = new URLSearchParams(parameters).toString();
+
+const fetchData = () => {
+    const fetchReq = fetch(url, {
+        method: 'GET',
+    });
+
+    fetchReq
+        .then(resp => resp.json())
+        .then(resjson => {
+            console.log(resjson);
+        })
+        .catch(err => console.log(err));
+};
+
+fetchData();
+
+const urlCari = new URL('http://www.omdbapi.com');
+const parametersCari = { apikey: '', s: 'star wars' };
+urlCari.search = new URLSearchParams(parametersCari).toString();
+
+const fetchDataCari = () => {
+    const fetchReq = fetch(urlCari, {
+        method: 'GET',
+    });
+
+    fetchReq
+        .then(resp => resp.json())
+        .then(resjson => {
+            console.log(resjson);
+        })
+        .catch(err => console.log(err));
+};
+
+fetchDataCari();

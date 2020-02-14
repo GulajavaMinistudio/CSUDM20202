@@ -32,7 +32,8 @@
     "devhttpasyncawait2": "parcel -p 4200 src/asyncjs/async9/index.html",
     "devclass1": "parcel -p 4200 src/oopjs/classjs1/index.html",
     "devclass2": "parcel -p 4200 src/oopjs/classjs2/index.html",
-    "devclass3": "parcel -p 4200 src/oopjs/classjs3/index.html"
+    "devclass3": "parcel -p 4200 src/oopjs/classjs3/index.html",
+    "deveks1": "parcel -p 4200 src/jseksperimen/index.html"
   },
   "author": "Gulajava",
   "license": "MIT",
