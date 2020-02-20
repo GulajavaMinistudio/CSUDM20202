@@ -133,6 +133,12 @@ class HewanPeliharaan {
 }
 
 class Kucing extends HewanPeliharaan {
+    /**
+     * @description Kelas kucing peliharaan
+     * @param {string} nama nama kucing peliharaan
+     * @param {string} umur umur dari peliharaan
+     * @param {string} hobi hobi main hewan peliharaan
+     */
     constructor(nama, umur, hobi = 'tidur') {
         // Panggil super untuk mengirim ke kelas utama
         // atau parent class
