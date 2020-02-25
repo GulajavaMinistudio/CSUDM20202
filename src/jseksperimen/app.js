@@ -148,3 +148,44 @@ const hapusDuplikatObjectFilterMultiKondisi = (listData, key1, key2) => {
 console.log(
     hapusDuplikatObjectFilterMultiKondisi(listPenggunaMulti, 'name', 'alamat'),
 );
+
+// Mengecek urutan hari dalam tanggal tertentu, dalam waktu 1 tahun 365/366 hari
+// https://www.30secondsofcode.org/js/s/day-of-year/
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+const posisiHariDalamTahun = date => {
+    const selisihDate = date - new Date(date.getFullYear(), 0, 0);
+    const milidetik1Hari = 1000 * 60 * 60 * 24;
+    const urutanHariTahun = Math.floor(selisihDate / milidetik1Hari);
+    return urutanHariTahun;
+};
+
+const urutanHariIni = posisiHariDalamTahun(new Date());
+console.log(`Hari ini adalah hari ke-${urutanHariIni} dalam 1 tahun`);
+
+// Lakukan pembulatan bilangan sebanyak n desimal di belakang koma
+// https://www.30secondsofcode.org/js/s/round
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+const bulatkanNilai = (nilai, desimal = 0) => {
+    const nilaiBulat = Math.round(`${nilai}e${desimal}`);
+    return Number(`${nilaiBulat}e-${desimal}`);
+};
+
+console.log('Pembulatan nilai', bulatkanNilai(3.205, 2));
+
+setTimeout(() => {
+    console.log('A');
+}, 5000);
+
+setTimeout(() => {
+    console.log('B');
+
+    const promise = new Promise(resolve => {
+        let benar = true;
+        while (benar) {
+            benar = false;
+            resolve(true);
+        }
+    });
+
+    promise.then();
+}, 2000);
