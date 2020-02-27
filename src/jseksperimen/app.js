@@ -189,3 +189,33 @@ setTimeout(() => {
 
     promise.then();
 }, 2000);
+
+// Cara membatalkan proses Http request dengan Fetch API
+// Dengan menggunakan  AbortController dan AbortSignal
+// https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+// https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+
+// Inisialisasi
+const abortController = new AbortController();
+const signalAbort = abortController.signal;
+
+// Beri listener jika ingin pantau statusnya
+signalAbort.addEventListener('abort', event => {
+    console.log(event);
+    console.log(signalAbort.aborted);
+});
+
+// Contoh dengan Fetch API
+fetch('https://slowmo.glitch.me/5000', { method: 'GET', signal: signalAbort })
+    .then(resp => resp.json())
+    .then(result => {
+        console.log(result);
+    })
+    .catch(err => {
+        console.warn(err);
+    });
+
+// Batalkan request setelah 2 detik
+setTimeout(() => {
+    abortController.abort();
+}, 2000);
