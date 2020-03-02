@@ -172,23 +172,23 @@ const bulatkanNilai = (nilai, desimal = 0) => {
 
 console.log('Pembulatan nilai', bulatkanNilai(3.205, 2));
 
-setTimeout(() => {
-    console.log('A');
-}, 5000);
+// setTimeout(() => {
+//     console.log('A');
+// }, 5000);
 
-setTimeout(() => {
-    console.log('B');
+// setTimeout(() => {
+//     console.log('B');
 
-    const promise = new Promise(resolve => {
-        let benar = true;
-        while (benar) {
-            benar = false;
-            resolve(true);
-        }
-    });
+//     const promise = new Promise(resolve => {
+//         let benar = true;
+//         while (benar) {
+//             benar = false;
+//             resolve(true);
+//         }
+//     });
 
-    promise.then();
-}, 2000);
+//     promise.then();
+// }, 2000);
 
 // Cara membatalkan proses Http request dengan Fetch API
 // Dengan menggunakan  AbortController dan AbortSignal
@@ -219,3 +219,15 @@ fetch('https://slowmo.glitch.me/5000', { method: 'GET', signal: signalAbort })
 setTimeout(() => {
     abortController.abort();
 }, 2000);
+
+// Menambahkan attribute rel noopener dan noreferrer
+// ke dalam a tag. Untuk menambahn keamanan pada url cross origin
+// https://web.dev/external-anchors-use-rel-noopener/
+// https://twitter.com/addyosmani/status/1234055782896979968
+const hrefEl = document.createElement('a');
+hrefEl.href = 'https://2019.stateofjs.com/';
+hrefEl.target = '_blank';
+hrefEl.setAttribute('rel', 'noopener noreferrer');
+hrefEl.innerText = 'State of JS';
+
+document.querySelector('#urldemo').append(hrefEl);
