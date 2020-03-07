@@ -210,6 +210,21 @@ fetch('https://slowmo.glitch.me/5000', { method: 'GET', signal: signalAbort })
     .then(resp => resp.json())
     .then(result => {
         console.log(result);
+
+        const nilaiNan = NaN;
+        const undefinedValue = undefined;
+        if (result === undefined) {
+            console.log(
+                'Nilainya adalah',
+                NaN,
+                null,
+                false,
+                true,
+                undefined,
+                nilaiNan,
+                undefinedValue,
+            );
+        }
     })
     .catch(err => {
         console.warn(err);
@@ -231,3 +246,25 @@ hrefEl.setAttribute('rel', 'noopener noreferrer');
 hrefEl.innerText = 'State of JS';
 
 document.querySelector('#urldemo').append(hrefEl);
+
+// Fungsi mengacak data di dalam array
+// https://javascript.info/task/shuffle
+// https://www.30secondsofcode.org/js/s/shuffle/
+const shuffleData = arr => {
+    const arrayData = arr;
+    let counter = arrayData.length;
+
+    while (counter > 0) {
+        const indexAcak = Math.floor(Math.random() * counter);
+        counter -= 1;
+
+        const tempData = arrayData[counter];
+        arrayData[counter] = arrayData[indexAcak];
+        arrayData[indexAcak] = tempData;
+    }
+
+    return arrayData;
+};
+
+const dataPertama = [1, 2, 3, 4, 5, 6];
+console.log('Acak data array', shuffleData(dataPertama));
