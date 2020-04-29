@@ -278,3 +278,44 @@ const shuffleData = arr => {
 
 const dataPertama = [1, 2, 3, 4, 5, 6];
 console.log('Acak data array', shuffleData(dataPertama));
+
+// Contoh proses async Fetch API
+// Dilanjutkan memanggil fungsi lain untuk proses hasil data
+let responPlanet;
+
+const fetchReq = fetch('https://swapi.co/api/planets', {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
+
+const setDaftarPlanet = resJson => {
+    responPlanet = resJson.results;
+
+    // Olah data hasil fetch disini
+    // Dijamin tidak undefined karena dijalankan
+    // setelah proses async http request selesai
+    console.log('Hasil daftar planet:', responPlanet);
+};
+
+// Jalankan Fetch API dengan then Promise
+fetchReq
+    .then(response => {
+        if (response.status === 200) {
+            return response.json();
+        }
+        throw new Error(`${response.status}`);
+    })
+    .then(resultdata => {
+        // Set hasil http request ke value responPlanet
+        setDaftarPlanet(resultdata);
+    })
+    .catch(err => console.log(err));
+
+// Jika kita ambil langsung disini, pasti hasilnya NULL
+// Karena proses async fetch http request di atas belum selesai,
+// Tetapi baris kode dibawah ini sudah dijalankan duluan
+console.log('Nilai planet pasti NULL', responPlanet);
+// Pelajari Bab Asinkronus di JavaScript
