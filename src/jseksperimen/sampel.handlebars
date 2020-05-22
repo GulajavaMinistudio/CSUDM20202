@@ -1,0 +1,26 @@
+{{> header}}
+<h2>About Page - Esterling Accime</h2>
+
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, eligendi eius! Qui aut quia eum, deleniti
+    excepturi soluta provident ab molestias. Exercitationem voluptates assumenda dolorum necessitatibus adipisci
+    recusandae dicta culpa.</p>
+
+
+<p>Description: {{ description }} </p>
+
+
+{{> footer}}
+
+<h2>Welcome to the contact page</h2>
+
+
+{{#each lists as |xValue xKey|}}
+
+
+{{#each xValue/items as |yValue yKey|}}
+<p>{{yValue}}</p>
+{{/each}}
+
+<hr>
+
+{{/each}}

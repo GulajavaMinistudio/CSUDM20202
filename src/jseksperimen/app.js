@@ -283,7 +283,7 @@ console.log('Acak data array', shuffleData(dataPertama));
 // Dilanjutkan memanggil fungsi lain untuk proses hasil data
 let responPlanet;
 
-const fetchReq = fetch('https://swapi.co/api/planets', {
+const fetchReq = fetch('http://swapi.dev/api/planets/', {
     method: 'GET',
     mode: 'cors',
     headers: {
@@ -319,3 +319,19 @@ fetchReq
 // Tetapi baris kode dibawah ini sudah dijalankan duluan
 console.log('Nilai planet pasti NULL', responPlanet);
 // Pelajari Bab Asinkronus di JavaScript
+
+const fetchReqCovid = fetch('https://api.kawalcorona.com/indonesia/provinsi/');
+
+fetchReqCovid
+    .then(response => {
+        if (response.status === 200) {
+            return response.json();
+        }
+        throw new Error(`${response.status}`);
+    })
+    .then(result => {
+        console.log('response corona kawalan', result);
+    })
+    .catch(err => {
+        console.log(err);
+    });

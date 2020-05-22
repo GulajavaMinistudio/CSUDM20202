@@ -137,3 +137,68 @@ const resultKalkulasi = new Calculators(8)
 
 console.log('Hasil perhitungan: ', resultKalkulasi);
 // Hasil perhitungan:  36
+
+// https://www.samanthaming.com/tidbits/87-5-ways-to-append-item-to-array/
+// Beberapa cara untuk memasukkan data ke dalam Array
+// Metode yang membuat Array Asal dan Tujuan Berubah / Bermutasi
+// Metode PUSH
+const ikanLaut = ['udang', 'tongkol'];
+ikanLaut.push('tuna');
+console.log(ikanLaut); // [ 'udang', 'tongkol', 'tuna' ]
+
+// Metode SPLICE
+const ikanTawar = ['lele', 'mujair'];
+const ikanTawarTambah = ['mas', 'gurame'];
+ikanTawar.splice(ikanTawar.length, 0, ...ikanTawarTambah);
+console.log(ikanTawar); // [ 'lele', 'mujair', 'mas', 'gurame' ]
+
+// Metode Array.length
+const unggas = ['ayam', 'bebek'];
+const lengthUnggas = unggas.length;
+unggas[lengthUnggas] = 'angsa';
+console.log(unggas); // [ 'ayam', 'bebek', 'angsa' ]
+
+// Metode yang membuat Array Asal Tidak Berubah / Tidak Bermutasi
+// Metode Concat
+const ikanHias = ['cupang', 'koi'];
+const ikanMahal = ['lohan', 'guppy'];
+const koleksiIkan = ikanHias.concat(ikanMahal);
+console.log(ikanHias); // [ 'cupang', 'koi' ]
+console.log(koleksiIkan); // [ 'cupang', 'koi', 'lohan', 'guppy' ]
+
+// Metode Spread Operator
+const akuarium = [...ikanHias, ...ikanMahal];
+console.log(ikanHias); // [ 'cupang', 'koi' ]
+console.log(akuarium); // [ 'cupang', 'koi', 'lohan', 'guppy' ]
+
+const kataBaku = 'Saya Belajar JavaScript';
+const kataBakuLength = kataBaku.length;
+const kataAlay = [];
+for (let i = 0; i < kataBakuLength; i += 1) {
+    const kataCek = kataBaku[i].toLowerCase();
+    if (
+        kataCek === 'a' ||
+        kataCek === 'u' ||
+        kataCek === 'e' ||
+        kataCek === 'o'
+    ) {
+        console.log(kataCek);
+        kataAlay.push('i');
+    } else {
+        kataAlay.push(kataCek);
+    }
+}
+console.log(kataAlay);
+
+let kataGabung = '';
+const panjangKataAlay = kataAlay.length;
+for (let i = 0; i < panjangKataAlay; i += 1) {
+    kataGabung += kataAlay[i];
+}
+console.log(kataGabung);
+
+export { Calculators };
+
+export function kataEkspor(kata) {
+    console.log(kata);
+}
