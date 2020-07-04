@@ -1,8 +1,7 @@
-let responseJson = [];
+// Component B isinya fetch data
+import render from './querycomponents';
 
-const showDataAPIs = () => {
-    console.log('response data sampel ', responseJson);
-};
+let responseJson = [];
 
 const getDataAPIs = () => {
     // contoh ambil data dari API
@@ -10,7 +9,10 @@ const getDataAPIs = () => {
         .then(resp => resp.json())
         .then(result => {
             responseJson = result;
-            showDataAPIs();
+            console.log(responseJson);
+            // panggil render data ke html atau
+            // fungsi lain untuk olah data ini
+            render(responseJson);
         })
         .catch(err => {
             console.log(err);
@@ -18,3 +20,13 @@ const getDataAPIs = () => {
 };
 
 getDataAPIs();
+
+const arrayDataAwal = [
+    { storerkey: 'qwewqe', storername: '234234' },
+    { storerkey: 'qweq', storername: 'qweqwe' },
+    { storerkey: '234234', storername: '234234' },
+];
+
+const objectData = {};
+objectData.data = arrayDataAwal;
+console.log(objectData);
