@@ -4,10 +4,10 @@ const ulListPlanet = document.querySelector('#listplanet');
 const divDetailPlanet = document.querySelector('#detail_planet');
 const divFilmPlanet = document.querySelector('#film_planet');
 
-const setDaftarPlanet = resJson => {
+const setDaftarPlanet = (resJson) => {
     const resultList = resJson.results;
 
-    resultList.forEach(planet => {
+    resultList.forEach((planet) => {
         const namaPlanet = planet.name;
         const liElement = document.createElement('li');
         liElement.innerText = namaPlanet;
@@ -16,7 +16,7 @@ const setDaftarPlanet = resJson => {
     });
 };
 
-const setDetailPlanet = resJson => {
+const setDetailPlanet = (resJson) => {
     const { results } = resJson;
     const planetDagobahItem = results[3];
     const planetName = planetDagobahItem.name;
@@ -30,7 +30,7 @@ const setDetailPlanet = resJson => {
     pElement.innerText = detailPlanet;
 };
 
-const getFilmPlanets = resJson => {
+const getFilmPlanets = (resJson) => {
     const { results } = resJson;
     const planetDagobahItem = results[3];
     const { films } = planetDagobahItem;
@@ -48,7 +48,7 @@ const getFilmPlanets = resJson => {
     return fetchReq;
 };
 
-const setFilmPlanetDetail = resjson => {
+const setFilmPlanetDetail = (resjson) => {
     const {
         title,
         opening_crawl: openingParagraf,
@@ -79,26 +79,26 @@ const getDaftarPlanetSW = () => {
     });
 
     fetchReq
-        .then(response => {
+        .then((response) => {
             if (response.status === 200) {
                 return response.json();
             }
             throw new Error(`${response.status}`);
         })
-        .then(responsejson => {
+        .then((responsejson) => {
             setDaftarPlanet(responsejson);
             setDetailPlanet(responsejson);
 
             return getFilmPlanets(responsejson);
         })
-        .then(response => {
+        .then((response) => {
             if (response.status === 200) {
                 return response.json();
             }
             throw new Error(`${response.status}`);
         })
-        .then(responsefilm => setFilmPlanetDetail(responsefilm))
-        .catch(error => {
+        .then((responsefilm) => setFilmPlanetDetail(responsefilm))
+        .catch((error) => {
             console.log(error);
         });
 };
@@ -108,7 +108,7 @@ getDaftarPlanetSW();
 // FETCH AMBIL DATA SEMUA PLANET
 const ulElementAllPlanet = document.querySelector('#daftar_semua_planet');
 
-const setPlanetListSemua = resjson => {
+const setPlanetListSemua = (resjson) => {
     const { results } = resjson;
     const panjangResult = results.length;
 
@@ -129,7 +129,7 @@ const setPlanetListSemua = resjson => {
     return Promise.resolve(resjson.next);
 };
 
-const getNextPlanets = pageUrl => {
+const getNextPlanets = (pageUrl) => {
     const fetchReq = fetch(pageUrl, {
         method: 'GET',
         mode: 'cors',
@@ -141,7 +141,7 @@ const getNextPlanets = pageUrl => {
     return fetchReq;
 };
 
-const checkStatusParse = response => {
+const checkStatusParse = (response) => {
     if (response.status !== 200) {
         throw new Error(`${response.status}`);
     }
@@ -158,26 +158,26 @@ const getAllPlanets = () => {
     });
 
     fetchReq
-        .then(response => {
+        .then((response) => {
             return checkStatusParse(response);
         })
         .then(setPlanetListSemua)
         .then(getNextPlanets)
         .then(checkStatusParse)
         .then(setPlanetListSemua)
-        .then(url => getNextPlanets(url))
+        .then((url) => getNextPlanets(url))
         .then(checkStatusParse)
         .then(setPlanetListSemua)
-        .then(url => getNextPlanets(url))
+        .then((url) => getNextPlanets(url))
         .then(checkStatusParse)
         .then(setPlanetListSemua)
-        .then(url => getNextPlanets(url))
+        .then((url) => getNextPlanets(url))
         .then(checkStatusParse)
         .then(setPlanetListSemua)
-        .then(url => getNextPlanets(url))
+        .then((url) => getNextPlanets(url))
         .then(checkStatusParse)
         .then(setPlanetListSemua)
-        .catch(error => {
+        .catch((error) => {
             console.log(error);
         });
 };
@@ -199,11 +199,11 @@ const fetchData = () => {
     });
 
     fetchReq
-        .then(resp => resp.json())
-        .then(resjson => {
+        .then((resp) => resp.json())
+        .then((resjson) => {
             console.log(resjson);
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
 };
 
 fetchData();
@@ -218,11 +218,11 @@ const fetchDataCari = () => {
     });
 
     fetchReq
-        .then(resp => resp.json())
-        .then(resjson => {
+        .then((resp) => resp.json())
+        .then((resjson) => {
             console.log(resjson);
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
 };
 
 fetchDataCari();
