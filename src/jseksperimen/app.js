@@ -365,3 +365,40 @@ for (const itemArray of sampelArrayDestination) {
 // Masukkan kembali ke Select Element di DOM HTML
 selectElement.innerHTML = '';
 selectElement.append(...arrayOptions);
+
+// const divElement = document.querySelector('.content');
+// const spansListEl = document.querySelectorAll('span');
+// const panjangSpans = spansListEl.length;
+// const arraySpansEl = [];
+// const warna = 'blue';
+
+// for (let i = 0; i < panjangSpans; i += 1) {
+//     const spanEl = spansListEl[i];
+//     spanEl.style.color = warna;
+//     arraySpansEl.push(spanEl);
+// }
+
+// divElement.innerHTML = '';
+// divElement.append(...spansListEl);
+
+const divResult = document.querySelector('.content');
+const spansList = document.querySelectorAll('span');
+const spansListResult = [];
+const warna = ['red', 'green', 'blue'];
+
+// looping warna kedalam element span
+const panjangSpansList = spansList.length;
+const panjangWarna = warna.length;
+let indeksWarna = 0;
+for (let i = 0; i < panjangSpansList; i += 1) {
+    const spanEl = spansList[i];
+    if (indeksWarna === panjangWarna) {
+        indeksWarna = 0;
+    }
+    spanEl.style.color = warna[indeksWarna];
+    spansListResult.push(spanEl);
+    indeksWarna += 1;
+}
+
+divResult.innerHTML = '';
+divResult.append(...spansListResult);
