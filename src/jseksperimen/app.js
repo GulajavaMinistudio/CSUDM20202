@@ -402,3 +402,19 @@ for (let i = 0; i < panjangSpansList; i += 1) {
 
 divResult.innerHTML = '';
 divResult.append(...spansListResult);
+
+const functionDua = (param1) => {
+    // Kirim payload ke endpoint
+    fetch('www.tes.com', {
+        data: param1,
+    })
+        .then()
+        .catch();
+};
+
+const functionSatu = () => {
+    const parameter = 'Hello payload';
+    functionDua(parameter);
+};
+
+functionSatu();
