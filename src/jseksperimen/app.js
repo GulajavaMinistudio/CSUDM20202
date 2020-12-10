@@ -210,30 +210,9 @@ fetch('https://slowmo.glitch.me/5000', { method: 'GET', signal: signalAbort })
     .then((resp) => resp.json())
     .then((result) => {
         console.log(result);
-    })
-    .catch((err) => {
-        console.warn(err);
-    });
 
-// Contoh dengan Fetch API
-fetch('https://slowmo.glitch.me/5000', { method: 'GET', signal: signalAbort })
-    .then((resp) => resp.json())
-    .then((result) => {
-        console.log(result);
-
-        const nilaiNan = NaN;
-        const undefinedValue = undefined;
         if (result === undefined) {
-            console.log(
-                'Nilainya adalah',
-                NaN,
-                null,
-                false,
-                true,
-                undefined,
-                nilaiNan,
-                undefinedValue,
-            );
+            console.log('Nilainya adalah', NaN, null, false, true, undefined);
         }
     })
     .catch((err) => {

@@ -11,7 +11,7 @@ async function greetHello() {
 console.log(greetHello());
 
 // Untuk mendapatkan nilai dari async function
-greetHello().then(res => {
+greetHello().then((res) => {
     console.log('Promise ASYNC perlu then', res);
 });
 
@@ -25,44 +25,44 @@ const jumlahKan = async (nilaiA, nilaiB) => {
 
 // Menggunakan then untuk mendapatkan Return function
 jumlahKan(5, 4)
-    .then(res => {
+    .then((res) => {
         console.log('PROMISE RESOLVED DENGAN NILAI: ', res);
     })
-    .catch(err => {
+    .catch((err) => {
         console.log('ERROR ASYNC AWAIT', err);
     });
 
 // Menggunakan catch untuk mendapatkan Error handling
 jumlahKan(5, '10')
-    .then(res => {
+    .then((res) => {
         console.log('PROMISE SUKSES', res);
     })
-    .catch(err => {
+    .catch((err) => {
         console.log('PROMISE DITOLAK ADA ERROR', err);
     });
 
 // Menjalankan fungsi Promise lain di dalam fungsi Async
 // Dengan menggunakan keyword await
 // Dan kembalikan hasilnya dalam bentuk return
-const getKapalStarWars = async url => {
+const getKapalStarWars = async (url) => {
     const resp = await fetch(url);
     const jsondata = await resp.json();
     return jsondata;
 };
 
 // Mendapatkan nilai return dari fungsi Async Await
-getKapalStarWars('https://swapi.co/api/starships')
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+getKapalStarWars('https://swapi.dev/api/starships')
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
 
 // Mendapatkan nilai error dari fungsi Async Await
-getKapalStarWars('https://swapi.co/api/starships_rusak')
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+getKapalStarWars('https://swapi.dev/api/starships_rusak')
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
 
 // Menjalankan Async Await tanpa nilai return
 // Dan Error handling di dalamnya
-const getPlanetStarwars = async url => {
+const getPlanetStarwars = async (url) => {
     try {
         const resp = await fetch(url);
         const jsondata = await resp.json();
@@ -120,7 +120,41 @@ async function gerakKeKanan(element, amount) {
     await gerakTombolX(element, amount, 1000);
 }
 
-gerakKeKanan(tombolElGerak, 100).catch(err => {
+gerakKeKanan(tombolElGerak, 100).catch((err) => {
     console.log('SELESAI GERAK', err);
-    gerakKeKanan(tombolElGerak, -100).catch(error => console.log(error));
+    gerakKeKanan(tombolElGerak, -100).catch((error) => console.log(error));
 });
+
+function getDataTodo() {
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then((response) => response.json())
+        .then((result) => {
+            setDataTodo(result);
+        })
+        .catch((error) => {
+            setDataTodo([]);
+        });
+}
+
+function setDataTodo(result) {
+    if (result) {
+        // setel data ke html DOM
+    }
+}
+
+async function getDataTodoAsync() {
+    try {
+        const response = await fetch(
+            'https://jsonplaceholder.typicode.com/todos/1',
+        );
+        const result = await response.json();
+        return result;
+    } catch (err) {
+        return {};
+    }
+}
+
+async function setDataTodo() {
+    const data = await getDataTodoAsync();
+    // Set ke html dom element...
+}

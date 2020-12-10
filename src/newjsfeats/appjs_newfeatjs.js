@@ -243,7 +243,7 @@ printKotaParamsAlamat(namaKotaParams);
 
 const responseData = ['85.150.70.22', 'janet.biz', 'https'];
 
-const parseResponseData = response => {
+const parseResponseData = (response) => {
     const [alamatip, domainip, protokol] = response;
     console.log(`Alamat response data ${alamatip} ${domainip} ${protokol}`);
 };
