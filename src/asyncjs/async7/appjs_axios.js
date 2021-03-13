@@ -11,7 +11,7 @@ const headerRequest = {
     'content-type': 'application/x-www-form-urlencoded',
 };
 
-const setDaftarKapalSW = jsondata => {
+const setDaftarKapalSW = (jsondata) => {
     const { results } = jsondata;
 
     const listKapalElement = [];
@@ -28,7 +28,7 @@ const setDaftarKapalSW = jsondata => {
     return Promise.resolve(jsondata.next);
 };
 
-const getNextKapal = urlReq => {
+const getNextKapal = (urlReq) => {
     const optionRequest = {
         method: 'get',
         url: urlReq,
@@ -39,24 +39,24 @@ const getNextKapal = urlReq => {
     return httpreqs;
 };
 
-const getDaftarKapalPerangSW = urlReq => {
+const getDaftarKapalPerangSW = (urlReq) => {
     getNextKapal(urlReq)
-        .then(resp => {
+        .then((resp) => {
             return setDaftarKapalSW(resp.data);
         })
-        .then(url => {
+        .then((url) => {
             return getNextKapal(url);
         })
-        .then(resp => {
+        .then((resp) => {
             return setDaftarKapalSW(resp.data);
         })
-        .then(url => {
+        .then((url) => {
             return getNextKapal(url);
         })
         .then(({ data }) => {
             return setDaftarKapalSW(data);
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
         });
 };
@@ -64,7 +64,7 @@ const getDaftarKapalPerangSW = urlReq => {
 getDaftarKapalPerangSW('https://swapi.co/api/starships');
 
 // Ambil Detail kapal dan filmnya
-const getDetailKapal = datajson => {
+const getDetailKapal = (datajson) => {
     const listKapal = datajson.results;
 
     const kapalExecutor = listKapal[0];
@@ -76,7 +76,7 @@ const getDetailKapal = datajson => {
     return filmPertama;
 };
 
-const getFilmKapal = datajson => {
+const getFilmKapal = (datajson) => {
     const { title, opening_crawl: openingCrawl, director, producer } = datajson;
 
     const detailFilmH3 = document.querySelector('#detail_film h3');
@@ -91,13 +91,13 @@ const getFilmKapal = datajson => {
     detailFilmDirectProducer.innerText = `Direktur: ${director} , Produser: ${producer}`;
     // detailFilmDirectProducer.style.fontWeight = 'bold';
 
-    detailFilmDirectProducer.addEventListener('click', event => {
+    detailFilmDirectProducer.addEventListener('click', (event) => {
         event.target.classList.toggle('text-kapal-film');
         console.log(event.target);
     });
 };
 
-const getDetailFilmKapal = urls => {
+const getDetailFilmKapal = (urls) => {
     const optionRequest = {
         method: 'get',
         url: urls,
@@ -111,11 +111,11 @@ const getDetailFilmKapal = urls => {
             const urlFilm = getDetailKapal(data);
             return axiosInstance({ url: urlFilm });
         })
-        .then(resp => {
+        .then((resp) => {
             console.log(resp);
             getFilmKapal(resp.data);
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
         });
 };
@@ -123,7 +123,7 @@ const getDetailFilmKapal = urls => {
 getDetailFilmKapal('https://swapi.co/api/starships');
 
 const aElement = document.querySelector('a');
-aElement.addEventListener('click', event => {
+aElement.addEventListener('click', (event) => {
     event.preventDefault();
     console.log('click');
     event.target.classList.toggle('hidden');

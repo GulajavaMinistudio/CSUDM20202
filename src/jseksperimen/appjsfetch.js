@@ -6,15 +6,15 @@ let responseJson = [];
 const getDataAPIs = () => {
     // contoh ambil data dari API
     fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(resp => resp.json())
-        .then(result => {
+        .then((resp) => resp.json())
+        .then((result) => {
             responseJson = result;
             console.log(responseJson);
             // panggil render data ke html atau
             // fungsi lain untuk olah data ini
             render(responseJson);
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
         });
 

@@ -8,7 +8,7 @@ import { promises as fs } from 'fs';
 const { promises: fsprom } = require('fs');
 
 // Contoh penggunaan dengan async await
-const prosesFileData = async urlpath => {
+const prosesFileData = async (urlpath) => {
     try {
         await fs.writeFile(urlpath);
         await fsprom.mkdir(urlpath);
@@ -26,10 +26,10 @@ function prosesFileDataLain(urlpath) {
     // Dengan menggunakan Promise API
     fs.promises
         .readFile(urlpath)
-        .then(data => {
+        .then((data) => {
             // proses data selanjutnya
         })
-        .catch(err => {
+        .catch((err) => {
             // proses error berikutnya
         });
 }

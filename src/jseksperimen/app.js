@@ -210,30 +210,9 @@ fetch('https://slowmo.glitch.me/5000', { method: 'GET', signal: signalAbort })
     .then((resp) => resp.json())
     .then((result) => {
         console.log(result);
-    })
-    .catch((err) => {
-        console.warn(err);
-    });
 
-// Contoh dengan Fetch API
-fetch('https://slowmo.glitch.me/5000', { method: 'GET', signal: signalAbort })
-    .then((resp) => resp.json())
-    .then((result) => {
-        console.log(result);
-
-        const nilaiNan = NaN;
-        const undefinedValue = undefined;
         if (result === undefined) {
-            console.log(
-                'Nilainya adalah',
-                NaN,
-                null,
-                false,
-                true,
-                undefined,
-                nilaiNan,
-                undefinedValue,
-            );
+            console.log('Nilainya adalah', NaN, null, false, true, undefined);
         }
     })
     .catch((err) => {
@@ -335,3 +314,86 @@ fetchReqCovid
     .catch((err) => {
         console.log(err);
     });
+
+const sampelArrayDestination = [
+    {
+        destination: 'Kota A',
+        biaya: '1000',
+    },
+    {
+        destination: 'Kota B',
+        biaya: '2000',
+    },
+    {
+        destination: 'Kota C',
+        biaya: '3000',
+    },
+];
+
+// Bikin options
+const selectElement = document.querySelector('#selectID');
+const arrayOptions = [];
+
+for (const itemArray of sampelArrayDestination) {
+    const optionSelect = document.createElement('option');
+    optionSelect.setAttribute('value', itemArray.biaya);
+    optionSelect.innerHTML = itemArray.destination;
+    arrayOptions.push(optionSelect);
+}
+
+// Masukkan kembali ke Select Element di DOM HTML
+selectElement.innerHTML = '';
+selectElement.append(...arrayOptions);
+
+// const divElement = document.querySelector('.content');
+// const spansListEl = document.querySelectorAll('span');
+// const panjangSpans = spansListEl.length;
+// const arraySpansEl = [];
+// const warna = 'blue';
+
+// for (let i = 0; i < panjangSpans; i += 1) {
+//     const spanEl = spansListEl[i];
+//     spanEl.style.color = warna;
+//     arraySpansEl.push(spanEl);
+// }
+
+// divElement.innerHTML = '';
+// divElement.append(...spansListEl);
+
+const divResult = document.querySelector('.content');
+const spansList = document.querySelectorAll('span');
+const spansListResult = [];
+const warna = ['red', 'green', 'blue'];
+
+// looping warna kedalam element span
+const panjangSpansList = spansList.length;
+const panjangWarna = warna.length;
+let indeksWarna = 0;
+for (let i = 0; i < panjangSpansList; i += 1) {
+    const spanEl = spansList[i];
+    if (indeksWarna === panjangWarna) {
+        indeksWarna = 0;
+    }
+    spanEl.style.color = warna[indeksWarna];
+    spansListResult.push(spanEl);
+    indeksWarna += 1;
+}
+
+divResult.innerHTML = '';
+divResult.append(...spansListResult);
+
+const functionDua = (param1) => {
+    // Kirim payload ke endpoint
+    fetch('www.tes.com', {
+        data: param1,
+    })
+        .then()
+        .catch();
+};
+
+const functionSatu = () => {
+    const parameter = 'Hello payload';
+    functionDua(parameter);
+};
+
+functionSatu();
