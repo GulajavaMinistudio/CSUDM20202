@@ -17,6 +17,10 @@ const getDataAPIs = () => {
         .catch(err => {
             console.log(err);
         });
+
+    // Klo dipanggil disini ya pasti belum dapat hasilnya
+    // Karena asinkronus
+    console.log(responseJson);
 };
 
 getDataAPIs();

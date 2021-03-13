@@ -25,3 +25,12 @@ const ketupatOpor = `${strKeyLebaran} 1441 Hijriyah. ${strIsiLebaran}. ${mudik}.
 
 console.log(ketupatOpor);
 // Selamat Idul Fitri 1441 Hijriyah. Taqobalallahu minna wa minkum. Mohon maaf lahir dan batin.
+
+const jumlahPerulangan = 10;
+const arrayHasil = [];
+for (let i = 1; i < jumlahPerulangan; i += 1) {
+    const stringNomor = `${i}`.padStart(i, '0');
+    arrayHasil.push(stringNomor);
+}
+
+console.log(arrayHasil);
