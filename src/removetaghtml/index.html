@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Tag HTML</title>
+</head>
+
+<body>
+    <h1>Hapus Tag HTML Tanpa JokesQuery</h1>
+    <div>
+        <blockquote>
+            <p>text 1</p>
+            <p>text 2</p>
+            <p>text 3</p>
+        </blockquote>
+    </div>
+</body>
+<script>
+    function removeTags() {
+        const blockEl = document.querySelector('blockquote');
+        const listP = blockEl.querySelectorAll('p');
+
+        const isiElementP = [];
+        listP.forEach((elementVal) => {
+            isiElementP.push(`${elementVal.innerText}\n`);
+        });
+
+        // Set ke blockquote lagi
+        blockEl.innerHTML = '';
+        blockEl.append(...isiElementP);
+    }
+
+    // Tes jalankan fungsinya dengan setTimeout atau jeda waktu
+    setTimeout(() => {
+        removeTags()
+    }, 2000);
+</script>
+
+</html>
