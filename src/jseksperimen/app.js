@@ -196,7 +196,7 @@ console.log('Pembulatan nilai', bulatkanNilai(3.205, 2));
 // https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
 
 // Inisialisasi
-console.log('Demo Font Iosevka Mayukai Sonata');
+console.log('Demo Font Iosevka Mayukai Serif');
 const abortController = new AbortController();
 const signalAbort = abortController.signal;
 
