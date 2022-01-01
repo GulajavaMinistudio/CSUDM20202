@@ -58,6 +58,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
-    "axios": "^0.19.2"
+    "axios": "^0.21.2"
   }
 }
